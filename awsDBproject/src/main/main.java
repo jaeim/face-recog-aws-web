@@ -5,7 +5,7 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Å×½ºÆ® ½ÃÀÛ");
+		System.out.println("í…ŒìŠ¤íŠ¸ì‹œì‘");
 		Connect c = new Connect();
 		c.test();		
 				

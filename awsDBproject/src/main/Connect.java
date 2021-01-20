@@ -19,7 +19,7 @@ public class Connect {
         }
         try (Connection con = DriverManager.getConnection(URL, USER, PW)){
             
-            // ¿¬°áÀÌ ¼º°øÇÏ¸é con °´Ã¼ÀÇ ÁÖ¼Ò°ªÀÌ ÂïÈû
+            // dbì—°ê²°ì´ ë˜ë©´ con ì£¼ì†Œê°€ ì°í˜
             System.out.println(con);
 
         } catch (Exception e) {
