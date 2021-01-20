@@ -14,7 +14,7 @@ function send(){
 </head>
 <body>
 <form name="form" method="POST" action="<c:url value='/user/result' />">
-<input type="text" />
+<input type="text" name="login_id"/>
 <input type="button" value="Àü¼Û" onClick="send()"/>
 </form>
 </body>
