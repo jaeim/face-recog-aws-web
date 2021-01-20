@@ -4,11 +4,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
+import model.Member;
+import model.service.Manager;
 
 public class ViewMemberController implements Controller{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		String login_id = request.getParameter("login_id");
+		
+		Member member = new Member();
+		try {
+			Manager manager = Manager.getInstance();
+			member = manager.getOneMemberByLoginId(login_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "/user/result.jsp";
 	}
 }
