@@ -3,6 +3,7 @@ package controller;
 import java.util.HashMap;
 import java.util.Map;
 import controller.*;
+import controller.member.ViewMemberController;
 
 
 public class RequestMapping {
@@ -13,7 +14,7 @@ public class RequestMapping {
     	mappings.put("/", new ForwardController("index.jsp"));
     	
     	mappings.put("/user/test", new ForwardController("/user/test.jsp"));
-    	mappings.put("/user/result", new ForwardController("/user/result.jsp"));
+    	mappings.put("/user/result", new ViewMemberController());
     }
 
     public Controller findController(String uri) {

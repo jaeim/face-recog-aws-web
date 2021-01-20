@@ -15,7 +15,7 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.cj.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://face-recog-db-dev.ckeffyuykcfz.ap-northeast-2.rds.amazonaws.com:3306/management" />
+				<property name="url" value="jdbc:mysql://face-recog-db-dev.ckeffyuykcfz.ap-northeast-2.rds.amazonaws.com:3306/mydb" />
 				<property name="username" value="admin" />
 				<property name="password" value="12345678" />
 			</dataSource>

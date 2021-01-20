@@ -38,6 +38,7 @@ public class MemberDAO {
 			member = sqlSession.getMapper(MemberMapper.class).selectOneMemberByLoginId(login_id);
 			// blob을 컴퓨터 내에 저장하기?
 			
+			System.out.println("image : " + member.getImage_blob());
 		} catch (Exception e) {
 			sqlSession.close();
 		}

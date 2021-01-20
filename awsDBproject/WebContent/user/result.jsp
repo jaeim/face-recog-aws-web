@@ -18,7 +18,7 @@ This is your INFO.
 <table>
 	<tr>
 		<td>ID</td>
-		<td>${meber.login_id }</td>
+		<td>${member.login_id }</td>
 	</tr>
 	<tr>
 		<td>PASSWORD</td>
@@ -26,11 +26,11 @@ This is your INFO.
 	</tr>
 	<tr>
 		<td>NAME</td>
-		<td>${member.name }</td>
+		<td>${member.member_name }</td>
 	</tr>
 	<tr>
 		<td>IMAGE</td>
-		<td>${member.image }</td>
+		<td>${member.image_blob }</td>
 	</tr>
 </table>
 </body>

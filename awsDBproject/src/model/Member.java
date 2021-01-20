@@ -7,13 +7,13 @@ public class Member {
 	private String login_id;
 	private String password;
 	private String member_name;
-	private Blob image_blob;
+	private byte[] image_blob;
 	
 	public Member( ) {
 		// 기본 생성자
 	}
 
-	public Member(int _id, String login_id, String password, String name, Blob imageBlob) {
+	public Member(int _id, String login_id, String password, String name, byte[] imageBlob) {
 		super();
 		this._id = _id;
 		this.login_id = login_id;
@@ -46,10 +46,10 @@ public class Member {
 	public void setMember_name(String name) {
 		this.member_name = name;
 	}
-	public Blob getImage_blob() {
+	public byte[] getImage_blob() {
 		return image_blob;
 	}
-	public void setImage_blob(Blob imageBlob) {
+	public void setImage_blob(byte[] imageBlob) {
 		this.image_blob = imageBlob;
 	}
 }
