@@ -1,7 +1,13 @@
 package model.dao;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+
+import javax.imageio.ImageIO;
 
 import org.apache.catalina.User;
 import org.apache.ibatis.io.Resources;
@@ -33,14 +39,15 @@ public class MemberDAO {
 		return dao;
 	}
 	
+	
 	public Member selectOneMemberByLoginId(String login_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		Member member = null;
 		try {
 			member = sqlSession.getMapper(MemberMapper.class).selectOneMemberByLoginId(login_id);
-			// blob을 컴퓨터 내에 저장하기?
+			// blob을 컴퓨터 내에 저장하기
 			
-			System.out.println("image : " + member.getImage_blob());
+//			System.out.println("image : " + member.getImage_blob());
 		} catch (Exception e) {
 			sqlSession.close();
 		}
