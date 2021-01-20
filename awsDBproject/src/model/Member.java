@@ -1,5 +1,9 @@
 package model;
 
+import java.io.UnsupportedEncodingException;
+
+import org.apache.tomcat.util.codec.binary.Base64;
+
 import com.mysql.cj.jdbc.Blob;
 
 public class Member {
@@ -52,4 +56,5 @@ public class Member {
 	public void setImage_blob(byte[] imageBlob) {
 		this.image_blob = imageBlob;
 	}
+	
 }
