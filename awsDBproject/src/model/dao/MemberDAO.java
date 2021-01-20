@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.io.InputStream;
+import java.util.Map;
 
 import org.apache.catalina.User;
 import org.apache.ibatis.io.Resources;
@@ -8,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.mysql.cj.jdbc.Blob;
 import com.repository.mapper.MemberMapper;
 
 import model.Member;

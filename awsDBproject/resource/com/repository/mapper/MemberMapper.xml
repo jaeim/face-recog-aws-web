@@ -17,5 +17,4 @@
 		FROM member
 		WHERE login_id = #{login_id}
 	</select>
-
 </mapper>

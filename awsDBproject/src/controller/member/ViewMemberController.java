@@ -1,5 +1,7 @@
 package controller.member;
 
+import java.net.http.HttpHeaders;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,7 +24,10 @@ public class ViewMemberController implements Controller{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		byte[] image = member.getImage_blob();
+		if(image != null) {
+			
+		}
 		
 		request.setAttribute("member", member);
 		return "/user/result.jsp";	

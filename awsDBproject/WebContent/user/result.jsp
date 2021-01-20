@@ -3,6 +3,8 @@
 <%request.setCharacterEncoding("UTF-8"); %> 
 <%@page import="java.util.*" %>    
 <%@page import="model.*, controller. *" %>
+<%@page import="com.mysql.cj.jdbc.Blob" %>
+<%@page import="java.io.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@ This is your INFO.
 	</tr>
 	<tr>
 		<td>IMAGE</td>
-		<td>${member.image_blob }</td>
+		<td><img id="profileImage" src="data:image/jpg;base64, ${member.image_blob }"></td>
 	</tr>
 </table>
 </body>
