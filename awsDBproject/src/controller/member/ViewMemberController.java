@@ -1,7 +1,11 @@
 package controller.member;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.net.http.HttpHeaders;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,11 +28,15 @@ public class ViewMemberController implements Controller{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		byte[] image = member.getImage_blob();
-		if(image != null) {
-			
-		}
 		
+		String filePath = "C:/dev/" + member.getMember_name() + ".jpg";
+		byte[] imageByte = member.getImage_blob();
+		ByteArrayInputStream inputStream = new ByteArrayInputStream(imageByte);
+		BufferedImage bufferedImage = ImageIO.read(inputStream);
+
+		ImageIO.write(bufferedImage, "jpg", new File(filePath)); //저장하고자 하는 파일 경로를 입력합니다.
+		
+		request.setAttribute("filepath", filePath);
 		request.setAttribute("member", member);
 		return "/user/result.jsp";	
 		

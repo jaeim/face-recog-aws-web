@@ -32,8 +32,9 @@ This is your INFO.
 	</tr>
 	<tr>
 		<td>IMAGE</td>
-		<td><img id="profileImage" src="data:image/jpg;base64, ${member.image_blob }"></td>
+		<td><img id="profileImage" src="${filepath }"></td>
 	</tr>
 </table>
+${filepath }
 </body>
 </html>
