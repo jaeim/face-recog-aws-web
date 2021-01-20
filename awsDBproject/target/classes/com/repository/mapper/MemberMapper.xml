@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.repository.mapper.MemberMapper">
+	<cache />
+	
+	<sql id="BaseColumns">
+		id AS _id,
+		login_id,
+		password,
+		name AS member_name,
+		image AS image_blob
+	</sql>
+	
+	<select id="selectOneMemberByLoginId" parameterType="String" resultType="Member">
+		SELECT <include refid="BaseColumns"/>
+		FROM member
+		WHERE login_id = #{login_id}
+	</select>
+	
+</mapper>
