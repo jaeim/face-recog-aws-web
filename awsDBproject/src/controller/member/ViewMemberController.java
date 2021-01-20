@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import controller.Controller;
 import model.Member;
 import model.service.Manager;
-
+// 재임
 public class ViewMemberController implements Controller{
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
