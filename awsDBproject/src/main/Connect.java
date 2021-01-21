@@ -1,5 +1,6 @@
 package main;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -11,20 +12,23 @@ public class Connect {
 	private final String PW = "12345678";
 	
 	public void test() {
-		try {
-            Class.forName(DRIVER);
-            
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try (Connection con = DriverManager.getConnection(URL, USER, PW)){
-            
-            // db연결이 되면 con 주소가 찍힘
-            System.out.println(con);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//		try {
+//            Class.forName(DRIVER);
+//            
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        try (Connection con = DriverManager.getConnection(URL, USER, PW)){
+//            
+//            // db연결이 되면 con 주소가 찍힘
+//            System.out.println(con);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+		
+		String filePath = getClass().getResource("/").getPath();
+		System.out.println(filePath);
 	}
 
 }

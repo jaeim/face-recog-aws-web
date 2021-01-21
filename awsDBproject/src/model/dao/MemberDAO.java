@@ -53,4 +53,16 @@ public class MemberDAO {
 		}
 		return member;
 	}
+	
+	public Member loginCheck(String login_id, String password) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		Member member = null;
+		try {
+			member = sqlSession.getMapper(MemberMapper.class).loginCheck(login_id, password);
+
+		} catch (Exception e) {
+			sqlSession.close();
+		}
+		return member;
+	}
 }

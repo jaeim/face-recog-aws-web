@@ -3,6 +3,7 @@ package controller.member;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.net.URL;
 import java.net.http.HttpHeaders;
 
 import javax.imageio.ImageIO;
@@ -30,7 +31,9 @@ public class ViewMemberController implements Controller{
 		}
 		
 		String filePath = "C:/dev/" + member.getMember_name() + ".jpg";
-		byte[] imageByte = member.getImage_blob();
+//		String filePath = getClass().getResource("/").getPath() + member.getMember_name() + ".jpg";
+		
+ 		byte[] imageByte = member.getImage_blob();
 		ByteArrayInputStream inputStream = new ByteArrayInputStream(imageByte);
 		BufferedImage bufferedImage = ImageIO.read(inputStream);
 
