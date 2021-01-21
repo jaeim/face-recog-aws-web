@@ -12,6 +12,7 @@ public class Member {
 	private String password;
 	private String member_name;
 	private byte[] image_blob;
+	private String image_encoded;
 	
 	public Member( ) {
 		// 기본 생성자
@@ -55,6 +56,11 @@ public class Member {
 	}
 	public void setImage_blob(byte[] imageBlob) {
 		this.image_blob = imageBlob;
+		this.image_encoded = Base64.encodeBase64String(imageBlob);
+		
 	}
 	
+	public String getImage_encoded() {
+		return this.image_encoded;
+	}
 }
