@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.net.URL;
-import java.net.http.HttpHeaders;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
