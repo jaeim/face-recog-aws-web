@@ -57,6 +57,7 @@ public class Member {
 	public void setImage_blob(byte[] imageBlob) {
 		this.image_blob = imageBlob;
 		this.image_encoded = Base64.encodeBase64String(imageBlob);
+		
 	}
 	
 	public String getImage_encoded() {
