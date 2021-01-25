@@ -23,4 +23,6 @@
 		FROM MNG_USR_TB
 		WHERE login_id = #{login_id} and password = #{password}
 	</select>
+	
+	
 </mapper>
