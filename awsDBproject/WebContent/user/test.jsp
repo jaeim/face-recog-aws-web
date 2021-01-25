@@ -13,9 +13,8 @@ function send(){
 </script>
 </head>
 <body>
-<form name="form" method="POST" action="<c:url value='/user/login' />">
+<form name="form" method="POST" action="<c:url value='/test/view' />">
 <input type="text" name="login_id"/>
-<input type="password" name="password"/>
 <input type="button" value="Àü¼Û" onClick="send()"/>
 </form>
 </body>

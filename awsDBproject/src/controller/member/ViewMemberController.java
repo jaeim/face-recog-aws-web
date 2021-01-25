@@ -29,18 +29,23 @@ public class ViewMemberController implements Controller{
 			e.printStackTrace();
 		}
 		
-		String filePath = "C:/dev/" + member.getMember_name() + ".jpg";
-//		String filePath = getClass().getResource("/").getPath() + member.getMember_name() + ".jpg";
+//		String filePath = "C:/dev/" + member.getMember_name() + ".jpg";
+////		String filePath = getClass().getResource("/").getPath() + member.getMember_name() + ".jpg";
+//		
+// 		byte[] imageByte = member.getImage_blob();
+//		ByteArrayInputStream inputStream = new ByteArrayInputStream(imageByte);
+//		BufferedImage bufferedImage = ImageIO.read(inputStream);
+//
+//		ImageIO.write(bufferedImage, "jpg", new File(filePath)); //저장하고자 하는 파일 경로를 입력합니다.
+//		
+//		request.setAttribute("filepath", filePath);
+//		request.setAttribute("member", member);
 		
- 		byte[] imageByte = member.getImage_blob();
-		ByteArrayInputStream inputStream = new ByteArrayInputStream(imageByte);
-		BufferedImage bufferedImage = ImageIO.read(inputStream);
-
-		ImageIO.write(bufferedImage, "jpg", new File(filePath)); //저장하고자 하는 파일 경로를 입력합니다.
+		if(member == null) {
+			return "";
+		}
 		
-		request.setAttribute("filepath", filePath);
 		request.setAttribute("member", member);
-		return "/user/result.jsp";	
-		
+		return "/test/viewUser.jsp";		
 	}
 }

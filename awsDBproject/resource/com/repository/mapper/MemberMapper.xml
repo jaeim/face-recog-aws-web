@@ -13,7 +13,7 @@
 	</resultMap>
 		
 	<select id="selectOneMemberByLoginId" parameterType="String" resultMap="baseResultMap">
-		SELECT id, login_id, password, name, image
+		SELECT *
 		FROM member
 		WHERE login_id = #{login_id}
 	</select>
