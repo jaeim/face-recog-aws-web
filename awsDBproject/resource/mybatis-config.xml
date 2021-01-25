@@ -9,6 +9,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="model.Member" alias="Member"/>
+		<typeAlias type="model.Setting" alias="Setting" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.repository.mapper.MemberMapper;
+import com.repository.mapper.SettingMapper;
 
 import model.Member;
 import model.Setting;
@@ -34,7 +35,16 @@ public class SettingDAO {
 	public Setting selectSettingInfo() {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
-		Setting setting = new Setting();
+		Setting setting = null;
+		try {
+			setting = sqlSession.getMapper(SettingMapper.class).selectSettingInfo();
+			// blob을 컴퓨터 내에 저장하기
+			
+//			System.out.println("image : " + member.getImage_blob());
+		} catch (Exception e) {
+			sqlSession.close();
+		}
+		
 		
 		return setting;
 	}
