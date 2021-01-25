@@ -10,8 +10,8 @@
 	response.setContentType("application/json");
 	JSONObject obj = new JSONObject();
 	
-	obj.put("RECOG_LV", 1);
-	obj.put("NOD_SEC", 10);
+	obj.put("RECOG_LV", 2);
+	obj.put("NOD_SEC", 20);
 	obj.put("DETEC_SEC", 60);
 	
 	response.getWriter().write(obj.toString());

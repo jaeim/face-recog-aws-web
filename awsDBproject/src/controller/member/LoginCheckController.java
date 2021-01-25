@@ -15,10 +15,6 @@ public class LoginCheckController implements Controller {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		
-		if(request.getMethod().equals("POST")) {
-			
-		}
-		
 		String login_id = request.getParameter("login_id");
 		String password = request.getParameter("password");
 		
