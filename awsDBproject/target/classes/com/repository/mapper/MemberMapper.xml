@@ -13,14 +13,14 @@
 	</resultMap>
 		
 	<select id="selectOneMemberByLoginId" parameterType="String" resultMap="baseResultMap">
-		SELECT id, login_id, password, name, image
-		FROM member
+		SELECT *
+		FROM MNG_USR_TB
 		WHERE login_id = #{login_id}
 	</select>
 	
 	<select id="loginCheck" resultMap="baseResultMap">
 		SELECT * 
-		FROM member
+		FROM MNG_USR_TB
 		WHERE login_id = #{login_id} and password = #{password}
 	</select>
 </mapper>

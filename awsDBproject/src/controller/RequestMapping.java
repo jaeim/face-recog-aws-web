@@ -14,8 +14,9 @@ public class RequestMapping {
     	mappings.put("/", new ForwardController("index.jsp"));
     	
     	mappings.put("/user/test", new ForwardController("/user/test.jsp"));
-    	mappings.put("/user/result", new ViewMemberController());
+    	mappings.put("/test/view", new ViewMemberController());
     	mappings.put("/user/login", new LoginCheckController());
+    	mappings.put("/setting/client", new SettingController());
     }
 
     public Controller findController(String uri) {
