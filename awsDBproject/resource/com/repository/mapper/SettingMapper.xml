@@ -9,4 +9,12 @@
 		FROM MNG_STG_TB
 	</select>
 	
+	<update id="updateSettingInfo" parameterType="Setting">
+		UPDATE MNG_STG_TB
+		SET RECOG_LV = ${RECOG_LV}, 
+			NOD_SEC = ${NOD_SEC},
+			DETEC_SEC = ${DETEC_SEC}
+	</update>
+	
+	
 </mapper>
