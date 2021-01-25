@@ -33,18 +33,21 @@ public class SettingDAO {
 	}
 	
 	public Setting selectSettingInfo() {
+		System.out.println("SettingDAO.selectSettingInfo");
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		Setting setting = null;
 		try {
 			setting = sqlSession.getMapper(SettingMapper.class).selectSettingInfo();
-			// blob을 컴퓨터 내에 저장하기
-			
-//			System.out.println("image : " + member.getImage_blob());
+			if(setting == null) {
+				System.out.println("setting is null");
+			}else {
+				System.out.println("setting is not null");
+			}
 		} catch (Exception e) {
 			sqlSession.close();
+			System.out.print(e.getMessage());
 		}
-		
 		
 		return setting;
 	}
