@@ -17,5 +17,9 @@ function send(){
 <input type="text" name="login_id"/>
 <input type="button" value="전송" onClick="send()"/>
 </form>
+
+<a href="<c:url value= '/setting/view'>
+	</c:url>" id="goSetting_btn">설정 정보</a>
+
 </body>
 </html>
