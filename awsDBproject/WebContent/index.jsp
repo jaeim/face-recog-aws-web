@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getContextPath() + "/user/test"); %>
+<!-- <% response.sendRedirect(request.getContextPath() + "/user/test"); %> -->

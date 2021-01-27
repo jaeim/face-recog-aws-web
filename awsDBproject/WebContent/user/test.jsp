@@ -11,8 +11,12 @@ function send(){
 	form.submit();
 }
 </script>
+<link href=¡±bootstrap/css/bootstrap.min.css¡± rel=¡±stylesheet¡± type=¡±text/css¡± />
+<script type=¡±text/javascript¡± src=¡±bootstrap/js/bootstrap.min.js¡±></script>
 </head>
 <body>
+
+
 <form name="form" method="POST" action="<c:url value='/test/view' />">
 <input type="text" name="login_id"/>
 <input type="button" value="Àü¼Û" onClick="send()"/>
