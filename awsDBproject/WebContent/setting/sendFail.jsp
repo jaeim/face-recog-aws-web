@@ -10,6 +10,6 @@
 	JSONObject obj = new JSONObject();
 
 	obj.put("error", "error");
-
+	
 	response.getWriter().write(obj.toString());
 %>

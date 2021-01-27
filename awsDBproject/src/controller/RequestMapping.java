@@ -5,6 +5,7 @@ import java.util.Map;
 import controller.*;
 import controller.member.*;
 import controller.setting.*;
+import controller.setting.SettingController;
 
 
 public class RequestMapping {

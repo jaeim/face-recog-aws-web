@@ -20,8 +20,4 @@
 	//String json = obj.toString();
 	//out.print(json);
 %>
-	
-	//out.print("<img src=\"data:image/jpeg;base64,${member.getImage_encoded()}\" width=\"200\" height=\"200\">");
-%>
-
 

@@ -18,7 +18,7 @@ public class SettingController implements Controller{
 		if(setting == null) {
 			return "setting/sendFail.jsp";
 		}
-		
+
 		request.setAttribute("setting", setting);
 		return "/setting/sendSetting.jsp";
 	}
