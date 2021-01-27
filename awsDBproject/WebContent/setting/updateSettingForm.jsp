@@ -32,7 +32,7 @@
 		var y = form.NOD_SEC.value;
 		var z = form.DETEC_SEC.value;
 		  if (isNaN(x) || isNaN(y) || isNaN(z)) {
-		    alert("숫자를 입력하세요.");
+		    alert("숫자를 입력하세요!");
 		    return false;
 		  }
 
