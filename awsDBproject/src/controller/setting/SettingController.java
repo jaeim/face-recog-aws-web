@@ -1,4 +1,4 @@
-package controller.member;
+package controller.setting;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
