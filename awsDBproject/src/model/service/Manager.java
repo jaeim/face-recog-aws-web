@@ -37,10 +37,13 @@ public class Manager {
 		return member;	
 	}
 	
-	public Setting getSettingInfo() {
-		System.out.println("Manager.getSettingInfo");
-		Setting setting = settingDAO.selectSettingInfo();
-		
-		return setting;
+	public Setting getSetting() throws NotFoundException {
+		Setting stg = settingDAO.selectSettingInfo();
+//		if (stg == null) {	throw new NotFoundException("설정 정보를 찾을 수 없습니다.");	}
+		return stg;
+	}
+	
+	public int updateSetting(Setting stg) {
+		return settingDAO.updateSettingInfo(stg);
 	}
 }

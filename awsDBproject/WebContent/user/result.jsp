@@ -7,7 +7,7 @@
 <%@page import="java.io.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	// 실제로 파이썬에서 이 페이지에 접속할 때는 response객체를 이용하면 될 것 같다.
+	// 실제로 파이썬에서 이 페이지에 접속할 때는 지금 주석처리해 놓은 부분을 활용하면 될 것 같다.
 	Member member = (Member) request.getAttribute("member");
 
 	response.setContentType("application/json");
@@ -19,6 +19,7 @@
 	response.getWriter().write(obj.toString());
 	//String json = obj.toString();
 	//out.print(json);
+%>
 	
 	//out.print("<img src=\"data:image/jpeg;base64,${member.getImage_encoded()}\" width=\"200\" height=\"200\">");
 %>

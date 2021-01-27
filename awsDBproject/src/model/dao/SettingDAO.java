@@ -33,22 +33,29 @@ public class SettingDAO {
 	}
 	
 	public Setting selectSettingInfo() {
-		System.out.println("SettingDAO.selectSettingInfo");
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		Setting setting = null;
 		try {
 			setting = sqlSession.getMapper(SettingMapper.class).selectSettingInfo();
-			if(setting == null) {
-				System.out.println("setting is null");
-			}else {
-				System.out.println("setting is not null");
-			}
 		} catch (Exception e) {
 			sqlSession.close();
 			System.out.print(e.getMessage());
 		}
-		
 		return setting;
 	}
+	
+	public int updateSettingInfo(Setting stg) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			int result = sqlSession.getMapper(SettingMapper.class).updateSettingInfo(stg);
+			if (result > 0) {
+				sqlSession.commit();
+			} 
+			return result;
+		} finally {
+			sqlSession.close();
+		}
+	}
+	
 }
