@@ -4,9 +4,17 @@
 <mapper namespace="com.repository.mapper.SettingMapper">
 	<cache />
 	
-	<select id="selectSettingInfo" resultType="Setting">
+	<resultMap id="BaseResultMap" type="Setting">
+		<id column="STG_ID" jdbcType="NUMERIC" property="STG_ID" />
+		<result column="RECOG_LV" jdbcType="NUMERIC" property="RECOG_LV" />
+		<result column="NOD_SEC" jdbcType="NUMERIC" property="NOD_SEC" />
+		<result column="DETEC_SEC" jdbcType="NUMERIC" property="DETEC_SEC" />
+	</resultMap>
+	
+	<select id="selectSettingInfo" resultMap="BaseResultMap">
 		SELECT *
 		FROM MNG_STG_TB
+		WHERE STG_ID = 1
 	</select>
 	
 	<update id="updateSettingInfo" parameterType="Setting">

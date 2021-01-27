@@ -6,17 +6,10 @@
 <%@page import="org.json.*" %>
 <%@page import="java.io.*" %>
 <%
-	Setting setting = (Setting) request.getAttribute("setting");
 	response.setContentType("application/json");
 	JSONObject obj = new JSONObject();
-	
-	obj.put("RECOG_LV", setting.getRECOG_LV());
-	obj.put("NOD_SEC", setting.getNOD_SEC());
-	obj.put("DETEC_SEC", setting.getDETEC_SEC());
-	
+
+	obj.put("error", "error");
+
 	response.getWriter().write(obj.toString());
-	//String json = obj.toString();
-	//out.print(json);
-	
-	//out.print("<img src=\"data:image/jpeg;base64,${member.getImage_encoded()}\" width=\"200\" height=\"200\">");
 %>

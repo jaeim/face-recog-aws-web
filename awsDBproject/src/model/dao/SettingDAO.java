@@ -40,6 +40,7 @@ public class SettingDAO {
 			setting = sqlSession.getMapper(SettingMapper.class).selectSettingInfo();
 		} catch (Exception e) {
 			sqlSession.close();
+			System.out.print(e.getMessage());
 		}
 		return setting;
 	}

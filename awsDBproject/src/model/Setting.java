@@ -7,8 +7,17 @@ public class Setting {
 	private int RECOG_LV;
 	
 	public Setting() {
-		super();
+		super();	
 	}
+	
+	public Setting(int sTG_ID, int dETEC_SEC, int nOD_SEC, int rECOG_LV) {
+		super();
+		STG_ID = sTG_ID;
+		DETEC_SEC = dETEC_SEC;
+		NOD_SEC = nOD_SEC;
+		RECOG_LV = rECOG_LV;
+	}
+	
 	public int getSTG_ID() {
 		return STG_ID;
 	}
