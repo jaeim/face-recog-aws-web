@@ -42,25 +42,6 @@ function moveSetting() {
     <link href="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/css/sb-admin-2.min.css" rel="stylesheet">
 
 
-<!-- Bootstrap core JavaScript-->
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- 외부 js 파일 가져올 시, context path 사용해야함...? -->
-    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script type="text/javascript" src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-area-demo.js"></script>
-    <script type="text/javascript" src="<c:url value="/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-pie-demo.js"/>"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-bar-demo.js"></script>
 
 </head>
 
@@ -119,64 +100,95 @@ function moveSetting() {
 				Illustrations on unDraw &rarr;</a>
 		</div>
 	</div>
+	
 	<!-- 차트 부분 -->
-	<div class="row">
-		<div class="col-xl-8 col-lg-7">
+ <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-			<!-- Area Chart -->
-			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-				</div>
-				<div class="card-body">
-					<div class="chart-area">
-						<canvas id="myAreaChart"></canvas>
-					</div>
-					<hr>
-					Styling for the area chart can be found in the
-					<code>/js/demo/chart-area-demo.js</code>
-					file.
-				</div>
-			</div>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Charts</h1>
+                    <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
+                        The charts below have been customized - for further customization options, please visit the <a
+                            target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
+                            documentation</a>.</p>
 
-			<!-- Bar Chart -->
-			<div class="card shadow mb-4">
-				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-				</div>
-				<div class="card-body">
-					<div class="chart-bar">
-						<canvas id="myBarChart"></canvas>
-					</div>
-					<hr>
-					Styling for the bar chart can be found in the
-					<code>/js/demo/chart-bar-demo.js</code>
-					file.
-				</div>
-			</div>
+                    <!-- Content Row -->
+                    <div class="row">
 
-		</div>
+                        <div class="col-xl-8 col-lg-7">
 
-		<!-- Donut Chart -->
-		<div class="col-xl-4 col-lg-5">
-			<div class="card shadow mb-4">
-				<!-- Card Header - Dropdown -->
-				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-				</div>
-				<!-- Card Body -->
-				<div class="card-body">
-					<div class="chart-pie pt-4">
-						<canvas id="myPieChart"></canvas>
-					</div>
-					<hr>
-					Styling for the donut chart can be found in the
-					<code>/js/demo/chart-pie-demo.js</code>
-					file.
-				</div>
-			</div>
-		</div>
-	</div>
+                            <!-- Area Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-area">
+                                        <canvas id="myAreaChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    Styling for the area chart can be found in the
+                                    <code>/js/demo/chart-area-demo.js</code> file.
+                                </div>
+                            </div>
+
+                            <!-- Bar Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    Styling for the bar chart can be found in the
+                                    <code>/js/demo/chart-bar-demo.js</code> file.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Donut Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    Styling for the donut chart can be found in the
+                                    <code>/js/demo/chart-pie-demo.js</code> file.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+  <!-- Bootstrap core JavaScript-->
+    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-area-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-pie-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/startbootstrap-sb-admin-2-gh-pages/js/demo/chart-bar-demo.js"></script>
 
 
 </body>
