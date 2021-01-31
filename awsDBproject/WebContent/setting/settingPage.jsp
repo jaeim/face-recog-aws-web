@@ -8,7 +8,12 @@
 <head>
 <meta charset="UTF-8">
 <title>setting Info Page</title>
-
+<script>
+	function moveUpdate() {
+		var ctx = "${pageContext.request.contextPath}"
+		location.href = ctx + "/setting/update/form";
+	}
+</script>
 <style>
 	#div1 {
 	  margin: 0;
@@ -66,10 +71,8 @@
 			<td>&nbsp;${stg.DETEC_SEC} 초</td>
 		</tr>		
 	</table>
-</div>
-<div id="div2">
-	<a href="<c:url value= '/setting/update/form' >
-	</c:url>" id="update_btn">수정하기</a>	
+	<br>
+	<button type="button" class="btn btn-primary" onclick="moveUpdate()">수정하기</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
