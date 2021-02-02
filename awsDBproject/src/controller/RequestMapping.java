@@ -5,6 +5,7 @@ import java.util.Map;
 import controller.*;
 import controller.member.*;
 import controller.setting.*;
+import controller.working.*;
 import controller.setting.SettingController;
 
 
@@ -23,7 +24,9 @@ public class RequestMapping {
     	mappings.put("/setting/view", new ViewSettingController());
     	mappings.put("/setting/update/form", new UpdateSettingController());
     	mappings.put("/setting/update", new UpdateSettingController());
-
+//    	근무정보
+    	mappings.put("/working/info", new WorkingInfoController());
+    	
     	
     }
 
