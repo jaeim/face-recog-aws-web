@@ -2,8 +2,7 @@ package model.service;
 
 import org.apache.jasper.tagplugins.jstl.core.If;
 
-import model.Member;
-import model.Setting;
+import model.*;
 import model.dao.MemberDAO;
 import model.dao.SettingDAO;
 

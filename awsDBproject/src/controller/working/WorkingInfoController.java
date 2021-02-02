@@ -57,8 +57,18 @@ public class WorkingInfoController implements Controller {
 		ArrayList<LinkedHashMap> workInfoList = (ArrayList<LinkedHashMap>) obj.get("working_info");
 		String id = (String) obj.get("id");
 		
-		System.out.println(workInfoList);
-		System.out.println(id);
+//		System.out.println(workInfoList);
+//		System.out.println(id);
+		
+		// 근무정보 db 저장 테스트 (로그는 앞서 저장되어 db에 존재한다고 가정)
+		// id를 통해 멤버 기본키를 알아냈다고 가정
+		// *오류 : LinkedHashMap에서 키를 통해 값을 얻어내는 데 실패.. 
+		for(LinkedHashMap list : workInfoList) {
+			System.out.println(list);
+//			list.entrySet().forEach(entry -> {
+//				entry.getValue();
+		}
+	
 		
 		return "/working/getInfo.jsp";
 	}

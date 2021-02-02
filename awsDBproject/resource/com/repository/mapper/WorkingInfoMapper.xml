@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.repository.mapper.WorkingInfoMapper">
+	<cache />
+	<resultMap id="WorkingInfoMap" type="WokingInfo">
+		<id column="HISTORY_ID" jdbcType="NUMERIC" property="history_id" />
+		<result column="USR_ID" jdbcType="NUMERIC" property="usr_id" />
+		<result column="WORKING_DT" jdbcType="DATE" property="dateTime" />
+		<result column="RECOG_TYPE" jdbcType="VARCHAR" property="workType" />
+		<result column="TTL_WORK_SEC" jdbcType="NUMERIC" property="totalTime" />
+		<result column="WORK_SEC" jdbcType="NUMERIC" property="workTime" />
+		<result column="SLACK_OFF_SEC" jdbcType="NUMERIC" property="notWorkTime" />
+		<result column="LOG_ID" jdbcType="NUMERIC" property="log_id" />
+	</resultMap>
+	
+	<select id="selectWorkingInfoById" resultMap="WorkingInfoMap" parameterType="long">
+		SELECT *
+		FROM MNG_WORK_HISTORY_TB
+		WHERE USR_ID = #{usr_id}
+	</select>
+
+	<insert id="insertWorkingInfo" parameterType="WokingInfo" useGeneratedKeys="true" keyProperty="id">
+	 	INSERT INTO MNG_WORK_HISTORY 
+	 	(USR_ID, WORKING_DT, RECOG_TYPE, TTL_WORK_SEC, WORK_SEC, SLACK_OFF_SEC, LOG_ID)
+	 	VALUES (#{usr_id}, #{dateTime}, #{workType}, #{totalTime}, #{workTime}, #{notWorkTime}, #{log_id})
+	 </insert>
+	
+
+	
+</mapper>
+	
