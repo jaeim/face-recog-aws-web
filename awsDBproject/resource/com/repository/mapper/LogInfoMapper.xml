@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.repository.mapper.LogInfoMapper">
+	<cache />
+	<select id="selectLogInfoById" resultType="LogInfo" parameterType="long">
+		SELECT LOG_ID,
+			CREATED_ID,
+			CONTENT,
+			TITLE,
+			USR_ID
+		FROM MNG_LOG_TB
+		WHERE USR_ID = #{usr_id}
+	</select>
+	
+	<insert id="insertLogInfo" parameterType="LogInfo" useGeneratedKeys="true" keyProperty="LOG_ID">
+		INSERT INTO MNG_LOG_TB (CREATED_DT, CONTENT, TITLE, USR_ID)
+		VALUES (#{CREATED_DT}, #{CONTENT}, #{TITLE}, #{USR_ID})
+	</insert>
+
+
+</mapper>

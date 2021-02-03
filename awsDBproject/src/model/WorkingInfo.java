@@ -1,10 +1,12 @@
 package model;
 
+import java.sql.Timestamp;
+
 public class WorkingInfo {
 	private int history_id;
 	private int usr_id;
-	// DATE 타입으로 저장해야 될 것 같음..
-	private String dateTime;
+	// DATETIME 타입
+	private Timestamp dateTime;
 	private String workType;
 	private int totalTime;
 	private int workTime;
@@ -13,7 +15,7 @@ public class WorkingInfo {
 	
 	public WorkingInfo() {}
 
-	public WorkingInfo(int history_id, int usr_id, String dateTime, String workType, int totalTime, int workTime,
+	public WorkingInfo(int history_id, int usr_id, Timestamp dateTime, String workType, int totalTime, int workTime,
 			int notWorkTime, int log_id) {
 		super();
 		this.history_id = history_id;
@@ -26,10 +28,10 @@ public class WorkingInfo {
 		this.log_id = log_id;
 	}
 
-	public String getDateTime() {
+	public Timestamp getDateTime() {
 		return dateTime;
 	}
-	public void setDateTime(String dateTime) {
+	public void setDateTime(Timestamp dateTime) {
 		this.dateTime = dateTime;
 	}
 	public String getWorkType() {

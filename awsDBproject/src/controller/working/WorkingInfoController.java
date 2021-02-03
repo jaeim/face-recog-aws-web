@@ -62,15 +62,17 @@ public class WorkingInfoController implements Controller {
 		System.out.println(id);
 		System.out.println(logData);
 		
+		// 로그 db 저장 테스트
+		
+		
 		// 근무정보 db 저장 테스트 (로그는 앞서 저장되어 db에 존재한다고 가정)
 		// id를 통해 멤버 기본키를 알아냈다고 가정
-		// *오류 : LinkedHashMap에서 키를 통해 값을 얻어내는 데 실패.. 
 		for(LinkedHashMap list : workInfoList) {
-			System.out.println(list.get("date_time"));
-			System.out.println(list.get("work_type"));
-			System.out.println(list.get("total_time"));
-			System.out.println(list.get("work_time"));
-			System.out.println(list.get("not_work_time"));
+//			System.out.println(list.get("date_time"));
+//			System.out.println(list.get("work_type"));
+//			System.out.println(list.get("total_time"));
+//			System.out.println(list.get("work_time"));
+//			System.out.println(list.get("not_work_time"));
 		}
 	
 		

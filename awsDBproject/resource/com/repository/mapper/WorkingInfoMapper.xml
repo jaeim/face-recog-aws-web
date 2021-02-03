@@ -20,7 +20,7 @@
 		WHERE USR_ID = #{usr_id}
 	</select>
 
-	<insert id="insertWorkingInfo" parameterType="WokingInfo" useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertWorkingInfo" parameterType="WokingInfo" useGeneratedKeys="true" keyProperty="history_id">
 	 	INSERT INTO MNG_WORK_HISTORY 
 	 	(USR_ID, WORKING_DT, RECOG_TYPE, TTL_WORK_SEC, WORK_SEC, SLACK_OFF_SEC, LOG_ID)
 	 	VALUES (#{usr_id}, #{dateTime}, #{workType}, #{totalTime}, #{workTime}, #{notWorkTime}, #{log_id})
