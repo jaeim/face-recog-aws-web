@@ -9,7 +9,7 @@ public class Setting {
 	public Setting() {
 		super();	
 	}
-	
+
 	public Setting(int sTG_ID, int dETEC_SEC, int nOD_SEC, int rECOG_LV) {
 		super();
 		STG_ID = sTG_ID;
