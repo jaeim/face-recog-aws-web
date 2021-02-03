@@ -56,9 +56,11 @@ public class WorkingInfoController implements Controller {
 		
 		ArrayList<LinkedHashMap> workInfoList = (ArrayList<LinkedHashMap>) obj.get("working_info");
 		String id = (String) obj.get("id");
+		String logData = (String) obj.get("log_data");
 		
 		System.out.println(workInfoList);
 		System.out.println(id);
+		System.out.println(logData);
 		
 		return "/working/getInfo.jsp";
 	}
