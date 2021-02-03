@@ -1,8 +1,10 @@
 package com.repository.mapper;
 
+import java.util.ArrayList;
+
 import model.LogInfo;
 
 public interface LogInfoMapper {
-	LogInfo selectLogInfoByIdInfo (int usr_id);
+	ArrayList<LogInfo> selectLogInfoById (int usr_id);
 	int insertLogInfo (LogInfo logInfo);
 }

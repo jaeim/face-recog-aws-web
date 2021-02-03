@@ -25,9 +25,10 @@ public class RequestMapping {
     	mappings.put("/setting/update/form", new UpdateSettingController());
     	mappings.put("/setting/update", new UpdateSettingController());
 //    	근무정보
-    	mappings.put("/working/info", new WorkingInfoController());
-    	
-    	
+    	mappings.put("/working/info", new GetClientInfoController());
+    	mappings.put("/working/member", new ShowMemberController());
+    	mappings.put("/working/logInfo", new ShowLogInfoController());
+    	mappings.put("/working/workingInfo", new ShowWorkingInfoController());
     }
 
     public Controller findController(String uri) {

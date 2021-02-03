@@ -5,6 +5,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
@@ -39,6 +40,16 @@ public class MemberDAO {
 		return dao;
 	}
 	
+	public ArrayList<Member> selectAllMember(){
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		ArrayList<Member> memberList = null;
+		try {
+			memberList = sqlSession.getMapper(MemberMapper.class).selectAllMember();
+		} catch (Exception e) {
+			sqlSession.close();
+		}
+		return memberList;
+	}
 	
 	public Member selectOneMemberByLoginId(String login_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -65,4 +76,6 @@ public class MemberDAO {
 		}
 		return member;
 	}
+	
+	
 }

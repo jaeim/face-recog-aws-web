@@ -3,9 +3,9 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.repository.mapper.LogInfoMapper">
 	<cache />
-	<select id="selectLogInfoById" resultType="LogInfo" parameterType="long">
+	<select id="selectLogInfoById" resultType="LogInfo" parameterType="int">
 		SELECT LOG_ID,
-			CREATED_ID,
+			CREATED_DT,
 			CONTENT,
 			TITLE,
 			USR_ID
@@ -13,10 +13,14 @@
 		WHERE USR_ID = #{usr_id}
 	</select>
 	
+	<select id="selectContentById" resultType="_byte[]" parameterType="int">
+		SELECT CONTENT
+		FROM MNG_LOG_TB
+		WHERE LOG_ID = #{log_id}
+	</select>
+	
 	<insert id="insertLogInfo" parameterType="LogInfo" useGeneratedKeys="true" keyProperty="LOG_ID">
 		INSERT INTO MNG_LOG_TB (CREATED_DT, CONTENT, TITLE, USR_ID)
 		VALUES (#{CREATED_DT}, #{CONTENT}, #{TITLE}, #{USR_ID})
 	</insert>
-
-
 </mapper>

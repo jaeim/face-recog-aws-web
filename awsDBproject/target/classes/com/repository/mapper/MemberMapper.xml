@@ -11,6 +11,11 @@
 		<result column="name" jdbcType="VARCHAR" property="member_name" />
 		<result column="image" jdbcType="BLOB" property="image_blob" javaType="_byte[]" />
 	</resultMap>
+	
+	<select id="selectAllMember" resultMap="baseResultMap">
+		SELECT *
+		FROM MNG_USR_TB
+	</select>
 		
 	<select id="selectOneMemberByLoginId" parameterType="String" resultMap="baseResultMap">
 		SELECT *

@@ -1,20 +1,28 @@
 package model.service;
 
+import java.util.ArrayList;
+
 import org.apache.jasper.tagplugins.jstl.core.If;
 
 import model.*;
+import model.dao.LogInfoDAO;
 import model.dao.MemberDAO;
 import model.dao.SettingDAO;
+import model.dao.WorkingInfoDAO;
 
 public class Manager {
 	private static Manager manager = new Manager();
 	private MemberDAO memberDAO;
 	private SettingDAO settingDAO;
+	private LogInfoDAO logInfoDAO;
+	private WorkingInfoDAO workingInfoDAO;
 	
 	private Manager() {
 		try {
 			memberDAO = MemberDAO.getInstance();
 			settingDAO = SettingDAO.getInstance();
+			logInfoDAO = LogInfoDAO.getInstance();
+			workingInfoDAO = WorkingInfoDAO.getInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -22,6 +30,12 @@ public class Manager {
 	
 	public static Manager getInstance() {
 		return manager;
+	}
+	
+	public ArrayList<Member> getAllMember(){
+		ArrayList<Member> memberList = memberDAO.selectAllMember();
+		
+		return memberList;
 	}
 	
 	public Member getOneMemberByLoginId(String login_id) throws NotFoundException {
@@ -44,5 +58,37 @@ public class Manager {
 	
 	public int updateSetting(Setting stg) {
 		return settingDAO.updateSettingInfo(stg);
+	}
+	
+	public ArrayList<WorkingInfo> getWorkingInfoById(int log_id) {
+		ArrayList<WorkingInfo> workingInfoList = workingInfoDAO.selecWorkingInfoById(log_id);
+		
+		return workingInfoList;
+	}
+	
+	public boolean insertWorkingInfo(WorkingInfo info) {
+		int result = workingInfoDAO.insertWorkingInfo(info);
+		System.out.println(result);
+		if(result == 1) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public ArrayList<LogInfo> getLogInfoById(int user_id) {
+		ArrayList<LogInfo> logInfoList = logInfoDAO.selectLogInfoById(user_id);
+		
+		return logInfoList;
+	}
+	
+	public boolean insertLogInfo(LogInfo info) {
+		int result = logInfoDAO.insertLogInfo(info);
+		System.out.println(result);
+		if(result == 1) {
+			return true;
+		}
+		
+		return false;
 	}
 }

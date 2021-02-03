@@ -14,14 +14,14 @@
 		<result column="LOG_ID" jdbcType="NUMERIC" property="log_id" />
 	</resultMap>
 	
-	<select id="selectWorkingInfoById" resultMap="WorkingInfoMap" parameterType="long">
+	<select id="selectWorkingInfoById" resultMap="WorkingInfoMap" parameterType="int">
 		SELECT *
 		FROM MNG_WORK_HISTORY_TB
-		WHERE USR_ID = #{usr_id}
+		WHERE LOG_ID = #{log_id}
 	</select>
 
 	<insert id="insertWorkingInfo" parameterType="WorkingInfo" useGeneratedKeys="true" keyProperty="history_id">
-	 	INSERT INTO MNG_WORK_HISTORY 
+	 	INSERT INTO MNG_WORK_HISTORY_TB 
 	 	(USR_ID, WORKING_DT, RECOG_TYPE, TTL_WORK_SEC, WORK_SEC, SLACK_OFF_SEC, LOG_ID)
 	 	VALUES (#{usr_id}, #{dateTime}, #{workType}, #{totalTime}, #{workTime}, #{notWorkTime}, #{log_id})
 	 </insert>
