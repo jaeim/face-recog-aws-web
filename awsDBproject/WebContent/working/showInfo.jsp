@@ -13,7 +13,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style>
 
+</style>
 </head>
 <body>
 <table>
@@ -35,20 +37,34 @@
 		<td>로그 내용</td>
 	</tr>
 	<c:forEach var="logInfo" items="${logInfoList }">
-		<c:set var="logInfo" value="${logInfo }" />
 		<tr>
 			<td><a href="<c:url value='/working/workingInfo'>
 						<c:param name='logId' value='${logInfo.LOG_ID}' />
 						</c:url>">${logInfo.CREATED_DT }</a></td>
 			<td>
+			<c:set var="filename" value="${logInfo.TITLE }" />
 			<% 
-				LogInfo logInfo = (LogInfo) pageContext.getAttribute("logInfo");
-				String content = new String(logInfo.getCONTENT());
-				pageContext.setAttribute("content", content);
-				pageContext.setAttribute("newLine", "\n");
-				pageContext.setAttribute("br", "<br/>");
+				String filename = (String) pageContext.getAttribute("filename");
+				String path = request.getServletContext().getRealPath("/logFolder/" + filename);
+			
+				BufferedReader reader = null;
+				try{
+					reader = new BufferedReader(new FileReader(path));
+				
+					while(true){
+						String str = reader.readLine();
+						if(str == null){
+							break;
+						}
+						out.println(str + "<br>");
+					}
+				}
+				catch(Exception e){
+					
+				}finally{
+					reader.close();
+				}
 			%>
-			${fn:replace(content, newLine, br) }
 			</td>
 		</tr>
 	</c:forEach>

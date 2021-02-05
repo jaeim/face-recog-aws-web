@@ -9,6 +9,7 @@
 		<result column="RECOG_LV" jdbcType="NUMERIC" property="RECOG_LV" />
 		<result column="NOD_SEC" jdbcType="NUMERIC" property="NOD_SEC" />
 		<result column="DETEC_SEC" jdbcType="NUMERIC" property="DETEC_SEC" />
+		<result column="VID_INTVL" jdbcType="NUMERIC" property="VID_INTVL" />
 	</resultMap>
 	
 	<select id="selectSettingInfo" resultMap="BaseResultMap">
@@ -21,7 +22,8 @@
 		UPDATE MNG_STG_TB
 		SET RECOG_LV = ${RECOG_LV}, 
 			NOD_SEC = ${NOD_SEC},
-			DETEC_SEC = ${DETEC_SEC}
+			DETEC_SEC = ${DETEC_SEC},
+			VID_INTVL = ${VID_INTVL}
 	</update>
 	
 	
