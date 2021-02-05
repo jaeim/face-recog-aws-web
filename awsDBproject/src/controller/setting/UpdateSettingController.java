@@ -31,6 +31,7 @@ public class UpdateSettingController implements Controller{
 		stg.setRECOV_LV(Integer.parseInt(request.getParameter("RECOG_LV")));
 		stg.setNOD_SEC(Integer.parseInt(request.getParameter("NOD_SEC")));
 		stg.setDETEC_SEC(Integer.parseInt(request.getParameter("DETEC_SEC")));
+		stg.setVID_INTVL(Integer.parseInt(request.getParameter("VID_INTVL")));
 		
 		int result = manager.updateSetting(stg);
 		// result <= 0 시 예외 발생?

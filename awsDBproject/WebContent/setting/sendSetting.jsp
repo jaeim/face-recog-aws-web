@@ -13,6 +13,7 @@
 	obj.put("RECOG_LV", setting.getRECOG_LV());
 	obj.put("NOD_SEC", setting.getNOD_SEC());
 	obj.put("DETEC_SEC", setting.getDETEC_SEC());
+	obj.put("VID_INTVL", setting.getVID_INTVL());
 	
 	response.getWriter().write(obj.toString());
 	//String json = obj.toString();

@@ -69,6 +69,10 @@
 		<tr>
 			<td>화면 탐지 간격 </td>
 			<td>&nbsp;${stg.DETEC_SEC} 초</td>
+		</tr>
+		<tr>
+			<td>동영상 처리 속도 </td>
+			<td>&nbsp;${stg.VID_INTVL} 초</td>
 		</tr>		
 	</table>
 	<br>
