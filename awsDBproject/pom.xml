@@ -53,6 +53,24 @@
     <artifactId>tomcat-util</artifactId>
     <version>9.0.40</version>
 </dependency>
+<dependency>
+	<groupId>javax.servlet</groupId> 
+	<artifactId>jstl</artifactId> 
+	<version>1.2</version> 
+</dependency> 
+<dependency> 
+	<groupId>taglibs</groupId> 
+	<artifactId>standard</artifactId> 
+	<version>1.1.2</version> 
+</dependency>
+<!-- https://mvnrepository.com/artifact/servlets.com/cos -->
+<dependency>
+    <groupId>servlets.com</groupId>
+    <artifactId>cos</artifactId>
+    <version>05Nov2002</version>
+</dependency>
+
+
   </dependencies>
   
   <build>

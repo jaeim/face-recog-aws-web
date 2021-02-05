@@ -6,11 +6,14 @@
 <%@page import="org.json.*" %>
 <%@page import="java.io.*" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+
 </head>
 <body>
 <table>
@@ -41,8 +44,11 @@
 			<% 
 				LogInfo logInfo = (LogInfo) pageContext.getAttribute("logInfo");
 				String content = new String(logInfo.getCONTENT());
-				out.print(content);
+				pageContext.setAttribute("content", content);
+				pageContext.setAttribute("newLine", "\n");
+				pageContext.setAttribute("br", "<br/>");
 			%>
+			${fn:replace(content, newLine, br) }
 			</td>
 		</tr>
 	</c:forEach>
@@ -52,11 +58,11 @@
 <c:if test="${workingInfoList != null}">
 	<table>
 	<tr>
-		<td>date</td>
-		<td>workType</td>
-		<td>totalTime</td>
-		<td>workTime</td>
-		<td>notWorkTime</td>
+		<td>날짜시각</td>
+		<td>근무타입</td>
+		<td>총근무시간</td>
+		<td>순수근무시간</td>
+		<td>근무태만시간</td>
 	</tr>
 	<c:forEach var="workingInfo" items="${workingInfoList }">
 		<tr>
