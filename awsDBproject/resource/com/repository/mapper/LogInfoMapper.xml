@@ -6,8 +6,8 @@
 	<select id="selectLogInfoById" resultType="LogInfo" parameterType="int">
 		SELECT LOG_ID,
 			CREATED_DT,
-			CONTENT,
 			TITLE,
+			PATH,
 			USR_ID
 		FROM MNG_LOG_TB
 		WHERE USR_ID = #{usr_id}
@@ -20,7 +20,7 @@
 	</select>
 	
 	<insert id="insertLogInfo" parameterType="LogInfo" useGeneratedKeys="true" keyProperty="LOG_ID">
-		INSERT INTO MNG_LOG_TB (CREATED_DT, CONTENT, TITLE, USR_ID)
-		VALUES (#{CREATED_DT}, #{CONTENT}, #{TITLE}, #{USR_ID})
+		INSERT INTO MNG_LOG_TB (CREATED_DT, CONTENT, TITLE, PATH, USR_ID)
+		VALUES (#{CREATED_DT}, #{CONTENT}, #{TITLE}, #{PATH}, #{USR_ID})
 	</insert>
 </mapper>

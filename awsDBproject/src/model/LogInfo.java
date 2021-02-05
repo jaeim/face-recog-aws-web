@@ -6,18 +6,17 @@ import java.sql.Timestamp;
 public class LogInfo {
 	private int LOG_ID;
 	private Timestamp CREATED_DT;
-	private byte[] CONTENT;
 	private String TITLE;
 	private int USR_ID;
+	private String PATH;
 	
-	
-	public LogInfo(int lOG_ID, Timestamp cREATED_DT, byte[] cONTENT, String tITLE, int uSR_ID) {
+	public LogInfo(int lOG_ID, Timestamp cREATED_DT, String tITLE, int uSR_ID, String pATH) {
 		super();
 		LOG_ID = lOG_ID;
 		CREATED_DT = cREATED_DT;
-		CONTENT = cONTENT;
 		TITLE = tITLE;
 		USR_ID = uSR_ID;
+		PATH = pATH;
 	}
 
 
@@ -46,16 +45,6 @@ public class LogInfo {
 	}
 
 
-	public byte[] getCONTENT() {
-		return CONTENT;
-	}
-
-
-	public void setCONTENT(byte[] cONTENT) {
-		CONTENT = cONTENT;
-	}
-
-
 	public String getTITLE() {
 		return TITLE;
 	}
@@ -74,6 +63,17 @@ public class LogInfo {
 	public void setUSR_ID(int uSR_ID) {
 		USR_ID = uSR_ID;
 	}
+
+
+	public String getPATH() {
+		return PATH;
+	}
+
+
+	public void setPATH(String pATH) {
+		PATH = pATH;
+	}
+	
 	
 	
 	

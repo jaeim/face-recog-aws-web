@@ -76,7 +76,7 @@ public class GetClientInfoController implements Controller {
 		Member member = manager.getOneMemberByLoginId(id);
 		LogInfo logInfo = new LogInfo();
 		logInfo.setCREATED_DT(logTimeStamp);
-		logInfo.setCONTENT(logData.getBytes());
+//		logInfo.setCONTENT(logData.getBytes());
 		logInfo.setTITLE(logCreated);
 		logInfo.setUSR_ID(member.get_id());
 		
