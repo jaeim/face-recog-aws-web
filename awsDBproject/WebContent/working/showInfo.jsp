@@ -46,24 +46,42 @@
 			<c:set var="filename" value="${logInfo.TITLE }" />
 			<% 
 				String filename = (String) pageContext.getAttribute("filename");
-				String path = request.getServletContext().getRealPath("/logFolder/" + filename);
-			
-				BufferedReader reader = null;
-				try{
-					reader = new BufferedReader(new FileReader(path));
+				String path = request.getServletContext().getRealPath("/logFolder/");
 				
-					while(true){
-						String str = reader.readLine();
-						if(str == null){
-							break;
-						}
-						out.println(str + "<br>");
-					}
+				// 로그파일 존재 검사
+				File f = new File(path);
+				boolean exist = false;
+				if(f.isDirectory()) {
+				    File[] fList = f.listFiles();
+				    for(int i=0; i < fList.length; i++)
+				       if(filename.equals(fList[i].getName())){
+				    	   exist = true;
+				    	   path += filename;
+				    	   break;
+				       }
 				}
-				catch(Exception e){
-					
-				}finally{
-					reader.close();
+				
+				if(exist){
+					BufferedReader reader = null;
+					try{
+						reader = new BufferedReader(new FileReader(path));
+						if(reader != null){
+							while(true){
+								String str = reader.readLine();
+								if(str == null){
+									break;
+								}
+								out.println(str + "<br>");
+							}
+						}
+					}
+					catch(Exception e){
+						
+					}finally{
+						reader.close();
+					}
+				}else {
+					out.println("로그파일을 찾을 수 없습니다.");
 				}
 			%>
 			</td>
