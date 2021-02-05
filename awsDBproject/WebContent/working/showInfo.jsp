@@ -31,6 +31,7 @@
 </table>
 
 <c:if test="${logInfoList != null}">
+
 	<table>
 	<tr>
 		<td>로그 날짜</td>
