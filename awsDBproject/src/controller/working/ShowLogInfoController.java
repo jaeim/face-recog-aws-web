@@ -19,6 +19,10 @@ public class ShowLogInfoController implements Controller {
 		int memberId = Integer.valueOf((String) request.getParameter("memberId"));
 		ArrayList<LogInfo> logInfoList = manager.getLogInfoById(memberId);
 		
+		for(LogInfo info : logInfoList) {
+			System.out.println(info.getLOG_ID());
+		}
+		
 		request.setAttribute("logInfoList", logInfoList);
 		return "/working/showInfo.jsp";
 	}

@@ -14,21 +14,26 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <style>
-
+  table {
+    width: 100%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #444444;
+  }
 </style>
 </head>
 <body>
-<table>
+<ul>
 <c:forEach var="member" items="${memberList }">
-	<tr>
-		<td>
+	<li>
 			<a href="<c:url value='/working/logInfo'>
 						<c:param name='memberId' value='${member._id}' />
 						</c:url>">${member.member_name}</a>
-		</td>
-	</tr>
+	</li>
 </c:forEach>
-</table>
+</ul>
 
 <c:if test="${logInfoList != null}">
 
@@ -46,7 +51,9 @@
 			<c:set var="filename" value="${logInfo.TITLE }" />
 			<% 
 				String filename = (String) pageContext.getAttribute("filename");
-				String path = request.getServletContext().getRealPath("/logFolder/");
+				//String path = request.getServletContext().getRealPath("/logFolder/");
+				String path = "/home/ubuntu/log/";
+				//String path = "C:\\project\\awsworkspace\\log\\";
 				
 				// 로그파일 존재 검사
 				File f = new File(path);
