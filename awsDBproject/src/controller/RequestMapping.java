@@ -24,11 +24,17 @@ public class RequestMapping {
     	mappings.put("/setting/view", new ViewSettingController());
     	mappings.put("/setting/update/form", new UpdateSettingController());
     	mappings.put("/setting/update", new UpdateSettingController());
-//    	근무정보
-    	mappings.put("/working/info", new GetClientInfoController());
+    	
+//    	근무정보 client로 부터 받기
+    	mappings.put("/sending/info", new GetClientInfoController());
+    	mappings.put("/sending/captureImage", new GetCaptureImageController());
+    	
+//    	근무정보 보여주기
     	mappings.put("/working/member", new ShowMemberController());
     	mappings.put("/working/logInfo", new ShowLogInfoController());
     	mappings.put("/working/workingInfo", new ShowWorkingInfoController());
+    	mappings.put("/working/captureImage", new ShowCaptureImageController());
+    	
     }
 
     public Controller findController(String uri) {

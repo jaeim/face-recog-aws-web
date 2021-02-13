@@ -43,9 +43,9 @@ public class GetClientInfoController implements Controller {
 		}
 		
 //		log file 받아서 서버에 저장
-		//String path = request.getServletContext().getRealPath("/logFolder/");
-		String path = "/home/ubuntu/log";
-		//String path = "C:\\project\\awsworkspace\\log\\asd";
+		//String path = "/home/ubuntu/log";
+		
+		String path = "C:\\project\\awsworkspace\\log";
 		System.out.println(path);
 		int maxFileSize = 1024 * 1024 * 2;
 		MultipartRequest multipartRequest = new MultipartRequest(request, path, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
