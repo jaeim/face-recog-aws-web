@@ -12,6 +12,7 @@
 		<typeAlias type="model.Setting" alias="Setting" />
 		<typeAlias type="model.LogInfo" alias="LogInfo" />
 		<typeAlias type="model.WorkingInfo" alias="WorkingInfo" />
+		<typeAlias type="model.ImageInfo" alias="ImageInfo" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -29,5 +30,6 @@
 		<mapper resource="com/repository/mapper/SettingMapper.xml"/>
 		<mapper resource="com/repository/mapper/LogInfoMapper.xml"/>
 		<mapper resource="com/repository/mapper/WorkingInfoMapper.xml"/>
+		<mapper resource="com/repository/mapper/ImageInfoMapper.xml" />
 	</mappers>
 </configuration>

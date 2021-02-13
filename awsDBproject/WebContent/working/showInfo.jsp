@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%request.setCharacterEncoding("UTF-8"); %> 
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%request.setCharacterEncoding("utf-8"); %> 
 <%@page import="java.util.*" %>    
 <%@page import="model.*, controller. *" %>
 <%@page import="org.json.*" %>
@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <style>
   table {
@@ -30,7 +30,7 @@
 	<li>
 			<a href="<c:url value='/working/logInfo'>
 						<c:param name='memberId' value='${member._id}' />
-						</c:url>">${member.member_name}</a>
+						</c:url>" class="js-action-a">${member.member_name}</a>
 	</li>
 </c:forEach>
 </ul>
@@ -39,14 +39,14 @@
 
 	<table>
 	<tr>
-		<td>�α� ��¥</td>
-		<td>�α� ����</td>
+		<td>로그 날짜</td>
+		<td>로그 내용</td>
 	</tr>
 	<c:forEach var="logInfo" items="${logInfoList }">
 		<tr>
 			<td><a href="<c:url value='/working/workingInfo'>
 						<c:param name='logId' value='${logInfo.LOG_ID}' />
-						</c:url>">${logInfo.CREATED_DT }</a></td>
+						</c:url>" class="js-action-a">${logInfo.CREATED_DT }</a></td>
 			<td>
 			<c:set var="filename" value="${logInfo.TITLE }" />
 			<% 
@@ -55,7 +55,7 @@
 				String path = "/home/ubuntu/log/";
 				//String path = "C:\\project\\awsworkspace\\log\\";
 				
-				// �α����� ���� �˻�
+				// 로그파일 존재 검사
 				File f = new File(path);
 				boolean exist = false;
 				if(f.isDirectory()) {
@@ -71,7 +71,7 @@
 				if(exist){
 					BufferedReader reader = null;
 					try{
-						reader = new BufferedReader(new FileReader(path));
+						reader = new BufferedReader(new InputStreamReader(new FileInputStream(path),"UTF-8"));
 						if(reader != null){
 							while(true){
 								String str = reader.readLine();
@@ -88,7 +88,7 @@
 						reader.close();
 					}
 				}else {
-					out.println("�α������� ã�� �� �����ϴ�.");
+					out.println("로그파일을 찾을 수 없습니다.");
 				}
 			%>
 			</td>
@@ -100,11 +100,11 @@
 <c:if test="${workingInfoList != null}">
 	<table>
 	<tr>
-		<td>��¥�ð�</td>
-		<td>�ٹ�Ÿ��</td>
-		<td>�ѱٹ��ð�</td>
-		<td>�����ٹ��ð�</td>
-		<td>�ٹ��¸��ð�</td>
+		<td>날짜시각</td>
+		<td>근무타입</td>
+		<td>총근무시간</td>
+		<td>순수근무시간</td>
+		<td>근무태만시간</td>
 	</tr>
 	<c:forEach var="workingInfo" items="${workingInfoList }">
 		<tr>
@@ -117,6 +117,5 @@
 	</c:forEach>
 	</table>
 </c:if>
-
 </body>
 </html>

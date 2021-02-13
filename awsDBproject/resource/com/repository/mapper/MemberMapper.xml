@@ -23,6 +23,12 @@
 		WHERE login_id = #{login_id}
 	</select>
 	
+	<select id="selectOneMemberById" parameterType="int" resultMap="baseResultMap">
+		SELECT *
+		FROM MNG_USR_TB
+		WHERE id = #{id}
+	</select>
+	
 	<select id="loginCheck" resultMap="baseResultMap">
 		SELECT * 
 		FROM MNG_USR_TB

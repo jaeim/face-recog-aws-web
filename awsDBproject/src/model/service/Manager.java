@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import org.apache.jasper.tagplugins.jstl.core.If;
 
 import model.*;
-import model.dao.LogInfoDAO;
-import model.dao.MemberDAO;
-import model.dao.SettingDAO;
-import model.dao.WorkingInfoDAO;
+import model.dao.*;
 
 public class Manager {
 	private static Manager manager = new Manager();
@@ -16,6 +13,7 @@ public class Manager {
 	private SettingDAO settingDAO;
 	private LogInfoDAO logInfoDAO;
 	private WorkingInfoDAO workingInfoDAO;
+	private ImageInfoDAO imageInfoDAO;
 	
 	private Manager() {
 		try {
@@ -23,6 +21,7 @@ public class Manager {
 			settingDAO = SettingDAO.getInstance();
 			logInfoDAO = LogInfoDAO.getInstance();
 			workingInfoDAO = WorkingInfoDAO.getInstance();
+			imageInfoDAO = ImageInfoDAO.getInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,6 +35,11 @@ public class Manager {
 		ArrayList<Member> memberList = memberDAO.selectAllMember();
 		
 		return memberList;
+	}
+	
+	public Member getOneMemberById(int id) {
+		Member member = memberDAO.selectOneMemberById(id);
+		return member;	
 	}
 	
 	public Member getOneMemberByLoginId(String login_id) throws NotFoundException {
@@ -85,6 +89,26 @@ public class Manager {
 	public boolean insertLogInfo(LogInfo info) {
 		int result = logInfoDAO.insertLogInfo(info);
 		System.out.println(result);
+		if(result == 1) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public ArrayList<ImageInfo> selectAllImageInfo(){
+		System.out.println("manager");
+		ArrayList<ImageInfo> imageInfoList = imageInfoDAO.selectAllImageInfo();
+		return imageInfoList;
+	}
+	
+	public ArrayList<ImageInfo> selectImageInfoByUserId(int user_id){
+		ArrayList<ImageInfo> imageInfoList = imageInfoDAO.selectImageInfoByUserId(user_id);
+		return imageInfoList;
+	}
+	
+	public boolean insertImageInfo(ImageInfo imageInfo) {
+		int result = imageInfoDAO.insertImageInfo(imageInfo);
 		if(result == 1) {
 			return true;
 		}
