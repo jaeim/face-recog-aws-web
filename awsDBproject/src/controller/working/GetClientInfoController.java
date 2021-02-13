@@ -50,54 +50,60 @@ public class GetClientInfoController implements Controller {
 		int maxFileSize = 1024 * 1024 * 2;
 		MultipartRequest multipartRequest = new MultipartRequest(request, path, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
 		
+		Enumeration fileNames = multipartRequest.getFileNames();
+		while(fileNames.hasMoreElements()) {
+			String key = (String) fileNames.nextElement();
+			System.out.println(multipartRequest.getFile(key).getName());
+		}
+		
 //		그외의 근무정보 파라매터 전달 받기
-		String logFileName = multipartRequest.getFile("log_file").getName();
-		System.out.println(logFileName);
-		String [] fileNameSplit = logFileName.split("_");
-		String id = fileNameSplit[0];
-		
-		String date = multipartRequest.getParameter("log_created");
-		Timestamp logTimeStamp = Timestamp.valueOf(date + ".0");
-		
-		String[] workingInfoList = multipartRequest.getParameterValues("working_info");
-		
-		Member member = manager.getOneMemberByLoginId(id);
-		
-		LogInfo logInfo = new LogInfo();
-		logInfo.setCREATED_DT(logTimeStamp);
-		logInfo.setPATH(path);
-		logInfo.setTITLE(logFileName);
-		logInfo.setUSR_ID(member.get_id());
-		
-		if(manager.insertLogInfo(logInfo)) {
-			System.out.println("insert logInfo");
-		}else {
-			System.out.println("error with inserting logInfo");
-		}
-		
-		System.out.println("logId : " + logInfo.getLOG_ID());
-		
-		for(String workInfoStr : workingInfoList) {
-			JSONParser parser = new JSONParser(workInfoStr);
-			LinkedHashMap workInfoJson = (LinkedHashMap) parser.parse();
-			
-			WorkingInfo workingInfo = new WorkingInfo();
-			Timestamp workTimeStamp = Timestamp.valueOf(((String) workInfoJson.get("date_time")) + ".0");
-			workingInfo.setUsr_id(member.get_id());
-			workingInfo.setDateTime(workTimeStamp);
-			workingInfo.setWorkType((String) workInfoJson.get("work_type"));
-			workingInfo.setTotalTime(((BigInteger) workInfoJson.get("total_time")).intValue());
-			workingInfo.setWorkTime(((BigInteger) workInfoJson.get("work_time")).intValue());
-			workingInfo.setNotWorkTime(((BigInteger) workInfoJson.get("not_work_time")).intValue());
-			workingInfo.setLog_id(logInfo.getLOG_ID());
-			
-			if(manager.insertWorkingInfo(workingInfo)) {
-				System.out.println("Insert WorkingInfo");
-			}else {
-				System.out.println("Error with Inserting WorkingInfo");
-			}
-		}
-		
+//		String logFileName = multipartRequest.getFile("file").getName();
+//		System.out.println(logFileName);
+//		String [] fileNameSplit = logFileName.split("_");
+//		String id = fileNameSplit[0];
+//		
+//		String date = multipartRequest.getParameter("log_created");
+//		Timestamp logTimeStamp = Timestamp.valueOf(date + ".0");
+//		
+//		String[] workingInfoList = multipartRequest.getParameterValues("working_info");
+//		
+//		Member member = manager.getOneMemberByLoginId(id);
+//		
+//		LogInfo logInfo = new LogInfo();
+//		logInfo.setCREATED_DT(logTimeStamp);
+//		logInfo.setPATH(path);
+//		logInfo.setTITLE(logFileName);
+//		logInfo.setUSR_ID(member.get_id());
+//		
+//		if(manager.insertLogInfo(logInfo)) {
+//			System.out.println("insert logInfo");
+//		}else {
+//			System.out.println("error with inserting logInfo");
+//		}
+//		
+//		System.out.println("logId : " + logInfo.getLOG_ID());
+//		
+//		for(String workInfoStr : workingInfoList) {
+//			JSONParser parser = new JSONParser(workInfoStr);
+//			LinkedHashMap workInfoJson = (LinkedHashMap) parser.parse();
+//			
+//			WorkingInfo workingInfo = new WorkingInfo();
+//			Timestamp workTimeStamp = Timestamp.valueOf(((String) workInfoJson.get("date_time")) + ".0");
+//			workingInfo.setUsr_id(member.get_id());
+//			workingInfo.setDateTime(workTimeStamp);
+//			workingInfo.setWorkType((String) workInfoJson.get("work_type"));
+//			workingInfo.setTotalTime(((BigInteger) workInfoJson.get("total_time")).intValue());
+//			workingInfo.setWorkTime(((BigInteger) workInfoJson.get("work_time")).intValue());
+//			workingInfo.setNotWorkTime(((BigInteger) workInfoJson.get("not_work_time")).intValue());
+//			workingInfo.setLog_id(logInfo.getLOG_ID());
+//			
+//			if(manager.insertWorkingInfo(workingInfo)) {
+//				System.out.println("Insert WorkingInfo");
+//			}else {
+//				System.out.println("Error with Inserting WorkingInfo");
+//			}
+//		}
+//		
 		
 		return "/working/getInfo.jsp";
 	}
