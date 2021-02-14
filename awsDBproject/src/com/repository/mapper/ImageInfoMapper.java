@@ -6,6 +6,6 @@ import model.WorkingInfo;
 
 public interface ImageInfoMapper {
 	ArrayList<ImageInfo> selectAllImageInfo();
-	ArrayList<ImageInfo> selectImageInfoByUserId(int user_id);
 	int insertImageInfo(ImageInfo imageInfo);
+	ArrayList<ImageInfo> selectImageInfoByWorkId(int work_id);
 }
