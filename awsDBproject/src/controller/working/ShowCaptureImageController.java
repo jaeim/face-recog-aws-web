@@ -16,14 +16,15 @@ public class ShowCaptureImageController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
+		int work_id = Integer.valueOf(request.getParameter("workId"));
+		
 		Manager manager = Manager.getInstance();
-//		테이블에서 캡쳐이미지테이블 읽기
-		ArrayList<ImageInfo> imageInfoList = manager.selectAllImageInfo();
-//		DTO로 저장하여 setAttribute하기
+
+		ArrayList<ImageInfo> imageInfoList = manager.selectImageInfoByWorkId(work_id);
 		
 		request.setAttribute("imageInfoList", imageInfoList);
 		
-		return "/working/showCaptureImage.jsp";
+		return "/working/showInfo.jsp";
 	}
 
 }

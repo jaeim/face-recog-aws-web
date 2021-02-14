@@ -102,8 +102,8 @@ public class Manager {
 		return imageInfoList;
 	}
 	
-	public ArrayList<ImageInfo> selectImageInfoByUserId(int user_id){
-		ArrayList<ImageInfo> imageInfoList = imageInfoDAO.selectImageInfoByUserId(user_id);
+	public ArrayList<ImageInfo> selectImageInfoByWorkId(int work_id){
+		ArrayList<ImageInfo> imageInfoList = imageInfoDAO.selectImageInfoByWorkId(work_id);
 		return imageInfoList;
 	}
 	

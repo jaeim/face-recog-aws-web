@@ -37,8 +37,7 @@ public class ImageInfoDAO {
 		try {
 			imageInfoList = sqlSession.getMapper(ImageInfoMapper.class).selectAllImageInfo();		
 			System.out.println(imageInfoList.get(0).getUSER_ID());
-//			System.out.println(imageInfoList.get(0).getUser().getMember_name());
-			System.out.println(imageInfoList.get(0).getUser());
+			
 		}catch(Exception e) {
 			sqlSession.close();
 			System.out.print(e.getMessage());
@@ -47,12 +46,12 @@ public class ImageInfoDAO {
 		return imageInfoList;
 	}
 	
-	public ArrayList<ImageInfo> selectImageInfoByUserId(int user_id){
+	public ArrayList<ImageInfo> selectImageInfoByWorkId(int work_id){
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		ArrayList<ImageInfo> imageInfoList = null;
 		
 		try {
-			imageInfoList = sqlSession.getMapper(ImageInfoMapper.class).selectImageInfoByUserId(user_id);
+			imageInfoList = sqlSession.getMapper(ImageInfoMapper.class).selectImageInfoByWorkId(work_id);
 			
 		}catch(Exception e) {
 			sqlSession.close();

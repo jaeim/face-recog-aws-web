@@ -4,32 +4,17 @@
 <mapper namespace="com.repository.mapper.ImageInfoMapper">
 	<cache />
 	
-	<resultMap type="ImageInfo" id="associationResultMap">
-		<id column="IMAGE_ID" jdbcType="NUMERIC" property="IMAGE_ID" />
-		<result column="USER_ID" jdbcType="NUMERIC" property="USER_ID"/>
-		<result column="PATH" jdbcType="VARCHAR" property="PATH"/>
-		<association property="user" column="USER_ID" javaType="Member">
-			<id property="id" column="_id"/>
-			<result property="login_id" column="login_id" />
-			<result property="name" column="name" />
-		</association>
-	</resultMap>
-	
 	<select id="selectAllImageInfo" resultType="ImageInfo">
 		SELECT * FROM MNG_WORK_IMAGE_TB
 	</select>
 	
-	<select id="selectImageInfoByUserId" resultMap="associationResultMap" parameterType="int">
-		SELECT i.IMAGE_ID, i.USER_ID, i.PATH,
-		u.id,
-		u.login_id,
-		u.name
-		FROM MNG_WORK_IMAGE_TB i, MNG_USR_TB u
-		WHERE i.user_id = u.id and i.USER_ID = #{user_id}
+	<select id="selectImageInfoByWorkId" resultType="ImageInfo" parameterType="int">
+		SELECT * FROM MNG_WORK_IMAGE_TB
+		WHERE WORK_ID = #{work_id}
 	</select>
 	
 	<insert id="insertImageInfo" parameterType="ImageInfo" useGeneratedKeys="true" keyProperty="IMAGE_ID">
-		INSERT INTO MNG_WORK_IMAGE_TB (USER_ID, PATH)
-		VALUES (#{USER_ID}, #{PATH})
+		INSERT INTO MNG_WORK_IMAGE_TB (USER_ID, PATH, WORK_ID, TITLE)
+		VALUES (#{USER_ID}, #{PATH}, #{WORK_ID}, #{TITLE})
 	</insert>
 </mapper>

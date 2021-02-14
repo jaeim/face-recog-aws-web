@@ -4,9 +4,9 @@ public class ImageInfo {
 	
 	private int IMAGE_ID;
 	private int USER_ID;
+	private int WORK_ID;
 	private String PATH;
-	Member user;
-	
+	private String TITLE;
 	
 	public ImageInfo() {
 		
@@ -17,14 +17,6 @@ public class ImageInfo {
 		IMAGE_ID = iMAGE_ID;
 		USER_ID = uSER_ID;
 		PATH = pATH;
-	}
-	
-	public ImageInfo(int iMAGE_ID, int uSER_ID, String pATH, Member user) {
-		super();
-		IMAGE_ID = iMAGE_ID;
-		USER_ID = uSER_ID;
-		PATH = pATH;
-		this.user = user;
 	}
 
 	public int getIMAGE_ID() {
@@ -46,14 +38,21 @@ public class ImageInfo {
 		PATH = pATH;
 	}
 
-	public Member getUser() {
-		return user;
+	public int getWORK_ID() {
+		return WORK_ID;
 	}
 
-	public void setUser(Member user) {
-		this.user = user;
+	public void setWORK_ID(int wORK_ID) {
+		WORK_ID = wORK_ID;
+	}
+
+	public String getTITLE() {
+		return TITLE;
+	}
+
+	public void setTITLE(String tITLE) {
+		TITLE = tITLE;
 	}
 	
 	
-
 }
