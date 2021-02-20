@@ -37,10 +37,10 @@ public class ImageInfoDAO {
 		try {
 			imageInfoList = sqlSession.getMapper(ImageInfoMapper.class).selectAllImageInfo();		
 			System.out.println(imageInfoList.get(0).getUSER_ID());
-			
 		}catch(Exception e) {
-			sqlSession.close();
 			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 		
 		return imageInfoList;
@@ -54,8 +54,9 @@ public class ImageInfoDAO {
 			imageInfoList = sqlSession.getMapper(ImageInfoMapper.class).selectImageInfoByWorkId(work_id);
 			
 		}catch(Exception e) {
-			sqlSession.close();
 			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 		
 		return imageInfoList;
@@ -69,8 +70,9 @@ public class ImageInfoDAO {
 			result = sqlSession.getMapper(ImageInfoMapper.class).insertImageInfo(imageInfo);
 			sqlSession.commit();
 		}catch(Exception e) {
-			sqlSession.close();
 			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 		
 		return result;
