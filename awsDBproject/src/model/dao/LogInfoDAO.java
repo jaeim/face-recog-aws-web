@@ -39,8 +39,9 @@ public class LogInfoDAO {
 		try {
 			logInfoList = sqlSession.getMapper(LogInfoMapper.class).selectLogInfoById(user_id);
 		}catch(Exception e) {
-			sqlSession.close();
 			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 		
 		return logInfoList;
@@ -56,8 +57,9 @@ public class LogInfoDAO {
 				sqlSession.commit();
 			}
 		}catch(Exception e) {
-			sqlSession.close();
 			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 		
 		return result;

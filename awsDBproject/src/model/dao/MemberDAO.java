@@ -46,6 +46,7 @@ public class MemberDAO {
 		try {
 			memberList = sqlSession.getMapper(MemberMapper.class).selectAllMember();
 		} catch (Exception e) {
+		} finally {
 			sqlSession.close();
 		}
 		return memberList;
@@ -60,6 +61,7 @@ public class MemberDAO {
 			
 //			System.out.println("image : " + member.getImage_blob());
 		} catch (Exception e) {
+		}finally {
 			sqlSession.close();
 		}
 		return member;
@@ -72,6 +74,7 @@ public class MemberDAO {
 			member = sqlSession.getMapper(MemberMapper.class).selectOneMemberById(id);
 	
 		} catch (Exception e) {
+		} finally {
 			sqlSession.close();
 		}
 		return member;
@@ -84,9 +87,23 @@ public class MemberDAO {
 			member = sqlSession.getMapper(MemberMapper.class).loginCheck(login_id, password);
 
 		} catch (Exception e) {
+		}finally {
 			sqlSession.close();
 		}
 		return member;
+	}
+	
+	public int countAllMember( ) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int count = 0;
+		try {
+			count = sqlSession.getMapper(MemberMapper.class).countAllMember();
+		} catch (Exception e) {
+			// TODO: handle exception
+		} finally {
+			sqlSession.close();
+		}
+		return count;
 	}
 	
 	

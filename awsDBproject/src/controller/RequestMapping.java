@@ -28,7 +28,6 @@ public class RequestMapping {
     	
 //    	근무정보 client로 부터 받기
     	mappings.put("/sending/info", new GetClientInfoController());
-    	mappings.put("/sending/captureImage", new GetCaptureImageController());
     	
 //    	근무정보 보여주기
     	mappings.put("/working/member", new ShowMemberController());

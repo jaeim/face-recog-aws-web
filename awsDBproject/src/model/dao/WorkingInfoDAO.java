@@ -40,8 +40,9 @@ public class WorkingInfoDAO {
 		try {
 			workingInfoList = sqlSession.getMapper(WorkingInfoMapper.class).selectWorkingInfoById(log_id);
 		}catch(Exception e) {
-			sqlSession.close();
 			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 		
 		return workingInfoList;
@@ -57,8 +58,9 @@ public class WorkingInfoDAO {
 				sqlSession.commit();
 			}
 		}catch(Exception e) {
-			sqlSession.close();
 			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 		
 		return result;

@@ -39,8 +39,9 @@ public class SettingDAO {
 		try {
 			setting = sqlSession.getMapper(SettingMapper.class).selectSettingInfo();
 		} catch (Exception e) {
-			sqlSession.close();
 			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
 		}
 		return setting;
 	}

@@ -115,4 +115,9 @@ public class Manager {
 		
 		return false;
 	}
+	// 모든 근로자 수 반환
+	public int countAllMember() {
+		int count = memberDAO.countAllMember();
+		return count;
+	}
 }
