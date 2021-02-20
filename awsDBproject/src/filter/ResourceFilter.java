@@ -21,6 +21,7 @@ public class ResourceFilter implements Filter {
     static {
     	resourcePrefixs.add("/bootstrap");
         resourcePrefixs.add("/startbootstrap-sb-admin-2-gh-pages");
+        resourcePrefixs.add("/AdminLTE");
 //      resourcePrefixs.add("/css");
 //      resourcePrefixs.add("/js");
 //      resourcePrefixs.add("/fonts");

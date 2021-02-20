@@ -19,6 +19,7 @@ public class RequestMapping {
     	mappings.put("/user/test", new ForwardController("/user/test.jsp"));
     	mappings.put("/test/view", new ViewMemberController());
     	mappings.put("/user/login", new LoginCheckController());
+    	mappings.put("/user/site-login", new SiteLoginController());
     	// 세팅정보
     	mappings.put("/setting/client", new SettingController());
     	mappings.put("/setting/view", new ViewSettingController());

@@ -17,6 +17,10 @@
 		FROM MNG_USR_TB
 	</select>
 		
+	<select id="countAllMember" parameterType="int">
+		SELECT COUNT(*)
+		FROM MNG_USR_TB
+	</select>
 	<select id="selectOneMemberByLoginId" parameterType="String" resultMap="baseResultMap">
 		SELECT *
 		FROM MNG_USR_TB
