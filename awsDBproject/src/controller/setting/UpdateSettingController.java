@@ -35,7 +35,12 @@ public class UpdateSettingController implements Controller{
 		
 		int result = manager.updateSetting(stg);
 		// result <= 0 시 예외 발생?
-		return "redirect:/setting/view";
+		// id, pwd 전달
+//		String login_id = request.getParameter("login_id");
+//		String password = request.getParameter("password");
+		
+//		return "redirect:/user/site-login?login_id=" + login_id + "&password=" + password;
+		return "redirect:/user/site-login";
 	}
 
 }
