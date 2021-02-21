@@ -26,6 +26,25 @@
 		</association>
 	</resultMap>
 	
+	<resultMap id="associationResultMap" type="WorkingInfo">
+		<id column="HISTORY_ID" jdbcType="NUMERIC" property="history_id" />
+		<result column="USR_ID" jdbcType="NUMERIC" property="usr_id" />
+		<result column="WORKING_DT" jdbcType="DATE" property="dateTime" />
+		<result column="RECOG_TYPE" jdbcType="VARCHAR" property="workType" />
+		<result column="TTL_WORK_SEC" jdbcType="NUMERIC" property="totalTime" />
+		<result column="WORK_SEC" jdbcType="NUMERIC" property="workTime" />
+		<result column="SLACK_OFF_SEC" jdbcType="NUMERIC" property="notWorkTime" />
+		<result column="LOG_ID" jdbcType="NUMERIC" property="log_id" />
+		<association property="logInfo" column="LOG_ID" javaType="LogInfo">
+			<id property="LOG_ID" column="LOG_ID" />
+			<result property="CREATED_DT" column="CREATED_DT" />
+			<result property="TITLE" column="TITLE" />
+			<result property="USR_ID" column="USR_ID" />
+			<result property="PATH" column="PATH" />
+			<result property="IP" column="IP" />
+		</association>
+	</resultMap>
+	
 	<select id="selectWorkingInfoById" resultMap="WorkingInfoMap" parameterType="int">
 		SELECT *
 		FROM MNG_WORK_HISTORY_TB
@@ -43,6 +62,13 @@
 		FROM MNG_WORK_HISTORY_TB w, MNG_LOG_TB l
 		WHERE w.LOG_ID = l.LOG_ID and w.HISTORY_ID=#{work_id}
 	</select>
+	
+	<select id="selectWorkingInfoAndLogInfoById" parameterType="int" resultMap="associationResultMap">
+		SELECT *
+		FROM MNG_WORK_HISTORY_TB w, MNG_LOG_TB l
+		WHERE w.LOG_ID = l.LOG_ID and w.usr_id = #{_id};
+	</select>
+	
 	
 </mapper>
 	

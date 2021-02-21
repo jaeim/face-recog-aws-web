@@ -39,6 +39,46 @@
 
 		form.submit();
 	}
+	function viewWorkingHistory(id) {
+		// alert(id);
+		$.ajax ({
+			url : '${pageContext.request.contextPath}/user/workingHistory',
+			type : 'POST',
+			data : jQuery.param({ _id : id }) ,
+		    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			dataType : "text",
+			// contentType: false,
+			processData: false,
+			cache : false,
+			error:function(request,status,error){
+			        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+			        
+			}
+
+		}).done(function(result) {
+			console.log("결과확인");
+			var html = jQuery('<div>').html(result);
+			var contents = html.find("div#divForWorkingHistory").html();
+			$("#workingHistoryContainer").html(contents);
+			// 초 -> 시간 변환
+			$('.totalTime').each( function() {
+				var seconds = $(this).text();
+				seconds = Number(seconds);
+				var hour = parseInt(seconds/3600);
+				var min = parseInt((seconds%3600)/60);
+				var sec = seconds%60;
+				$(this).html(hour + ":" + min + ":" + sec);	
+			});		
+			$('.workTime').each( function() {
+				var seconds = $(this).text();
+				seconds = Number(seconds);
+				var hour = parseInt(seconds/3600);
+				var min = parseInt((seconds%3600)/60);
+				var sec = seconds%60;
+				$(this).html(hour + ":" + min + ":" + sec);	
+			});		
+		}).fail(function (jqXHR, textStatus, errorThrown) { console.log("에러"); console.log(jqXHR); console.log(textStatus); console.log(errorThrown); });
+	}
 	
 	function viewMemberInfo(id) {
 		// alert(id);
@@ -72,6 +112,27 @@
 		//alert("닫기");
 		$("#memberInfoContainer").empty();
 	}
+	
+	function test1(seconds) {
+
+		var hour = parseInt(seconds/3600);
+		var min = parseInt((seconds%3600)/60);
+		var sec = seconds%60;
+
+		document.getElementById("demo").innerHTML = hour + ":" + min + ":" + sec
+
+		}
+	
+	$(document).ready(function () {
+	    var seconds = $('#totalTime').text();
+	    var hour = parseInt(seconds/3600);
+		var min = parseInt((seconds%3600)/60);
+		var sec = seconds%60;
+		
+		document.getElementById("totalTime").innerHTML = hour + ":" + min + ":" + sec
+	    //$('#totalTime').val(total);
+	});
+	
 </script>
 
 <!-- Google Font: Source Sans Pro -->
@@ -266,7 +327,7 @@
 												<td>${stg.RECOG_LV }</td>
 												<td>
 													<button type="button" class="btn btn-light"
-														onclick="viewWorkingHistory();">상세보기</button>
+														onclick="viewWorkingHistory('${member._id }');">상세보기</button>
 												</td>
 												<td>
 													<button type="button" class="btn btn-light"
@@ -288,10 +349,13 @@
 			<br/>
 			
 			<div id="memberInfoContainer" class="container-fluid">
-
 				<!-- container-fluid -->
 			</div>
 
+			<div id="workingHistoryContainer" class="container-fluid">
+				<!-- container-fluid -->
+			</div>
+			
 			<!-- content-fluid -->
 		</div>
 
