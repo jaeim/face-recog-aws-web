@@ -83,18 +83,20 @@ public class GetClientInfoController implements Controller {
 		
 //		로그파일 생성 시간 알아내기
 		String date = multipartRequest.getParameter("log_created");
-		Timestamp logTimeStamp = Timestamp.valueOf(date + ".0");
-		System.out.println(logTimeStamp);
+		
+//		사용자 IP 주소 가져오기
+		String IP = multipartRequest.getParameter("ip");
 		
 //		근무정보 가져오기
 		String[] workingInfoList = multipartRequest.getParameterValues("working_info");
 
 //		로그 정보 저장하기
 		LogInfo logInfo = new LogInfo();
-		logInfo.setCREATED_DT(logTimeStamp);
+		logInfo.setCREATED_DT(date + ".0");
 		logInfo.setPATH(path);
 		logInfo.setTITLE(logFileName);
 		logInfo.setUSR_ID(member.get_id());
+		logInfo.setIP(IP);
 		
 		if(manager.insertLogInfo(logInfo)) {
 			System.out.println("insert logInfo");
@@ -112,9 +114,8 @@ public class GetClientInfoController implements Controller {
 			LinkedHashMap workInfoJson = (LinkedHashMap) parser.parse();
 			
 			WorkingInfo workingInfo = new WorkingInfo();
-			Timestamp workTimeStamp = Timestamp.valueOf(((String) workInfoJson.get("date_time")) + ".0");
 			workingInfo.setUsr_id(member.get_id());
-			workingInfo.setDateTime(workTimeStamp);
+			workingInfo.setDateTime(((String) workInfoJson.get("date_time")) + ".0");
 			workingInfo.setWorkType((String) workInfoJson.get("work_type"));
 			workingInfo.setTotalTime(((BigInteger) workInfoJson.get("total_time")).intValue());
 			workingInfo.setWorkTime(((BigInteger) workInfoJson.get("work_time")).intValue());
@@ -139,6 +140,13 @@ public class GetClientInfoController implements Controller {
 		for(String imageFileName : imageFilesName) {
 			String splitedName[] = imageFileName.split("_");
 			int work_id = Integer.valueOf(splitedName[0]);
+			String [] splitedTime = splitedName[2].split("-");
+			String [] end = splitedTime[2].split("\\.");
+			String string_date = splitedName[1] + " " + splitedTime[0] + ":" + splitedTime[1] + ":" + end[0];
+			
+//			Timestamp img_date = Timestamp.valueOf(string_date + ".0");
+			
+//			System.out.println(img_date);
 			System.out.println("image_work_id : " + work_id);
 			int history_id = workImageMap.get(work_id);
 			System.out.println("workInfo primaryKey : " + history_id);
@@ -148,6 +156,7 @@ public class GetClientInfoController implements Controller {
 			imageInfo.setTITLE(imageFileName);
 			imageInfo.setUSER_ID(member.get_id());
 			imageInfo.setWORK_ID(history_id);
+			imageInfo.setDATE(string_date);
 			
 			if(manager.insertImageInfo(imageInfo)) {
 				System.out.println("Insert ImageInfo");

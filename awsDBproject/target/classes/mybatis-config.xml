@@ -23,13 +23,8 @@
 				<property name="username" value="admin" />
 				<property name="password" value="12345678" />
 				
-				<property name="poolMaximumActiveConnections" value="20"/>
-            	<property name="poolMaximumIdleConnections" value="20"/>
-            	<property name="poolMaximumCheckoutTime" value="20000"/>
-            	<property name="poolPingEnabled" value="true"/>
-            	<property name="poolPingQuery" value="select 1"/>
-            	<property name="poolPingConnectionsNotUsedFor" value="10000"/>
-            	<property name="poolTimeToWait" value="15000"/>
+				<property name="poolMaximumActiveConnections" value="10"/>
+            	<property name="poolMaximumIdleConnections" value="10"/>
 			</dataSource>
 		</environment>
 	</environments>

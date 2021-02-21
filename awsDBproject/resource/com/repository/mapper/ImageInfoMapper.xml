@@ -10,11 +10,11 @@
 	
 	<select id="selectImageInfoByWorkId" resultType="ImageInfo" parameterType="int">
 		SELECT * FROM MNG_WORK_IMAGE_TB
-		WHERE WORK_ID = #{work_id}
+		WHERE WORK_ID = #{work_id} ORDER BY DATE ASC
 	</select>
 	
 	<insert id="insertImageInfo" parameterType="ImageInfo" useGeneratedKeys="true" keyProperty="IMAGE_ID">
-		INSERT INTO MNG_WORK_IMAGE_TB (USER_ID, PATH, WORK_ID, TITLE)
-		VALUES (#{USER_ID}, #{PATH}, #{WORK_ID}, #{TITLE})
+		INSERT INTO MNG_WORK_IMAGE_TB (USER_ID, PATH, WORK_ID, TITLE, DATE)
+		VALUES (#{USER_ID}, #{PATH}, #{WORK_ID}, #{TITLE}, #{DATE})
 	</insert>
 </mapper>

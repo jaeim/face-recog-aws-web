@@ -42,6 +42,7 @@
 	<table>
 	<tr>
 		<td>로그 날짜</td>
+		<td>IP주소</td>
 		<td>로그 내용</td>
 	</tr>
 	<c:forEach var="logInfo" items="${logInfoList }">
@@ -49,6 +50,7 @@
 			<td><a href="<c:url value='/working/workingInfo'>
 						<c:param name='logId' value='${logInfo.LOG_ID}' />
 						</c:url>" class="js-action-a">${logInfo.CREATED_DT }</a></td>
+			<td>${logInfo.IP }</td>
 			<td>
 			<c:set var="filename" value="${logInfo.TITLE }" />
 			<c:set var="filepath" value="${logInfo.PATH }" />
@@ -118,14 +120,25 @@
 </c:if>
 
 <c:if test="${imageInfoList != null }">
+<%
+	int index = 1;
+%>
 	<table>
 		<tr>
+			<td>순번</td>
+			<td>날짜 시간</td>
 			<td>이미지</td>
-			<td>날짜시각</td>
+			<td>파일명</td>
 		</tr>
 		<c:forEach var="imageInfo" items="${imageInfoList }">
 		<c:set var="imageInfo" value="${imageInfo }" />
 		<tr>
+		<td>
+			<%out.println(index++); %>
+		</td>
+		<td>
+			${imageInfo.DATE }
+		</td>
 			<td>
 				<%
 					ImageInfo imageInfo = (ImageInfo) pageContext.getAttribute("imageInfo");

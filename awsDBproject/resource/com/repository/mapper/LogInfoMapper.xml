@@ -8,13 +8,14 @@
 			CREATED_DT,
 			TITLE,
 			PATH,
-			USR_ID
+			USR_ID,
+			IP
 		FROM MNG_LOG_TB
 		WHERE USR_ID = #{usr_id}
 	</select>
 	
 	<insert id="insertLogInfo" parameterType="LogInfo" useGeneratedKeys="true" keyProperty="LOG_ID">
-		INSERT INTO MNG_LOG_TB (CREATED_DT, TITLE, PATH, USR_ID)
-		VALUES (#{CREATED_DT}, #{TITLE}, #{PATH}, #{USR_ID})
+		INSERT INTO MNG_LOG_TB (CREATED_DT, TITLE, PATH, USR_ID, IP)
+		VALUES (#{CREATED_DT}, #{TITLE}, #{PATH}, #{USR_ID}, #{IP})
 	</insert>
 </mapper>

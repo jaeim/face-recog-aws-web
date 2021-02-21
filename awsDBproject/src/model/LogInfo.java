@@ -5,12 +5,13 @@ import java.sql.Timestamp;
 
 public class LogInfo {
 	private int LOG_ID;
-	private Timestamp CREATED_DT;
+	private String CREATED_DT;
 	private String TITLE;
 	private int USR_ID;
 	private String PATH;
+	private String IP;
 	
-	public LogInfo(int lOG_ID, Timestamp cREATED_DT, String tITLE, int uSR_ID, String pATH) {
+	public LogInfo(int lOG_ID, String cREATED_DT, String tITLE, int uSR_ID, String pATH) {
 		super();
 		LOG_ID = lOG_ID;
 		CREATED_DT = cREATED_DT;
@@ -35,12 +36,12 @@ public class LogInfo {
 	}
 
 
-	public Timestamp getCREATED_DT() {
+	public String getCREATED_DT() {
 		return CREATED_DT;
 	}
 
 
-	public void setCREATED_DT(Timestamp cREATED_DT) {
+	public void setCREATED_DT(String cREATED_DT) {
 		CREATED_DT = cREATED_DT;
 	}
 
@@ -72,6 +73,16 @@ public class LogInfo {
 
 	public void setPATH(String pATH) {
 		PATH = pATH;
+	}
+
+
+	public String getIP() {
+		return IP;
+	}
+
+
+	public void setIP(String iP) {
+		IP = iP;
 	}
 	
 	

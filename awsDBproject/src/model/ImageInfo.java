@@ -1,22 +1,26 @@
 package model;
 
+import java.sql.Timestamp;
+
 public class ImageInfo {
 	
 	private int IMAGE_ID;
 	private int USER_ID;
 	private int WORK_ID;
 	private String PATH;
+	private String DATE;
 	private String TITLE;
 	
 	public ImageInfo() {
 		
 	}
 	
-	public ImageInfo(int iMAGE_ID, int uSER_ID, String pATH) {
+	public ImageInfo(int iMAGE_ID, int uSER_ID, String pATH, String dATE) {
 		super();
 		IMAGE_ID = iMAGE_ID;
 		USER_ID = uSER_ID;
 		PATH = pATH;
+		DATE = dATE;
 	}
 
 	public int getIMAGE_ID() {
@@ -53,6 +57,22 @@ public class ImageInfo {
 	public void setTITLE(String tITLE) {
 		TITLE = tITLE;
 	}
+
+	public String getDATE() {
+		return DATE;
+	}
+
+	public void setDATE(String dATE) {
+		DATE = dATE;
+	}
+
+//	public Timestamp getDATE() {
+//		return DATE;
+//	}
+//
+//	public void setDATE(Timestamp dATE) {
+//		DATE = dATE;
+//	}
 	
 	
 }
