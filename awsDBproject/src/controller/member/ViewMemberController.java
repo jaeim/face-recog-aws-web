@@ -46,6 +46,6 @@ public class ViewMemberController implements Controller{
 		}
 		
 		request.setAttribute("member", member);
-		return "/test/viewUser.jsp";		
+		return "/user/viewMemberInfo.jsp";		
 	}
 }
