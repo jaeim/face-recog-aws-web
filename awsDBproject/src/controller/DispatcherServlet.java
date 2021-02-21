@@ -33,7 +33,12 @@ public class DispatcherServlet extends HttpServlet {
             System.err.println(uri);
             if (uri == null)
             	return;
-
+            
+            if(uri.contains("{")) {
+            	System.out.println("uri contains {");
+            	response.getWriter().write(uri);
+            }
+            else {
             if (uri.startsWith("redirect:")) {	
             	String targetUri = contextPath + uri.substring("redirect:".length());
             	response.sendRedirect(targetUri);        
@@ -41,7 +46,9 @@ public class DispatcherServlet extends HttpServlet {
             else {
             	RequestDispatcher rd = request.getRequestDispatcher(uri);
                 rd.forward(request, response);
-            }                   
+            }
+            }
+//            response.getWriter().write("");
         } catch (Exception e) {
             throw new ServletException(e.getMessage());
         }

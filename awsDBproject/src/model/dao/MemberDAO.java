@@ -106,5 +106,22 @@ public class MemberDAO {
 		return count;
 	}
 	
+	public int insertMember(Member member) {
+		System.out.println("DAO insertMember");
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int result = 0;
+		try {
+			result = sqlSession.getMapper(MemberMapper.class).insertMember(member);
+			System.out.println(result);
+			if(result > 0) {
+				sqlSession.commit();
+			}
+		} catch (Exception e) {
+			System.err.print(e.getMessage());
+		} finally {
+			sqlSession.close();
+		}
+		return result;
+	}
 	
 }

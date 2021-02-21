@@ -76,6 +76,12 @@
     <version>3.5.1</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/org.webjars.bower/jquery.ajax -->
+<dependency>
+    <groupId>org.webjars.bower</groupId>
+    <artifactId>jquery.ajax</artifactId>
+    <version>1.2.0</version>
+</dependency>
 
   </dependencies>
   

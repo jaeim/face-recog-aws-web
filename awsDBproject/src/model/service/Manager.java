@@ -80,6 +80,12 @@ public class Manager {
 		return false;
 	}
 	
+	public WorkingInfo getLogInfoByWorkId(int work_id) {
+		WorkingInfo workInfo = workingInfoDAO.selectLogInfoByWorkId(work_id);
+	
+		return workInfo;
+	}
+	
 	public ArrayList<LogInfo> getLogInfoById(int user_id) {
 		ArrayList<LogInfo> logInfoList = logInfoDAO.selectLogInfoById(user_id);
 		
@@ -119,5 +125,14 @@ public class Manager {
 	public int countAllMember() {
 		int count = memberDAO.countAllMember();
 		return count;
+	}
+	
+	public boolean insertMember(Member member) {
+		System.out.println("Manager insertMember");
+		int result = memberDAO.insertMember(member);
+		
+		if(result == 1){ return true; }
+		
+		return false;
 	}
 }

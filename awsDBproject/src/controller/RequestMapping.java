@@ -20,6 +20,9 @@ public class RequestMapping {
     	mappings.put("/test/view", new ViewMemberController());
     	mappings.put("/user/login", new LoginCheckController());
     	mappings.put("/user/site-login", new SiteLoginController());
+    	mappings.put("/user/registerForm", new ForwardController("/user/registerForm.jsp"));
+    	mappings.put("/user/register", new RegisterMemberController());
+    	
     	// 세팅정보
     	mappings.put("/setting/client", new SettingController());
     	mappings.put("/setting/view", new ViewSettingController());
@@ -29,12 +32,15 @@ public class RequestMapping {
 //    	근무정보 client로 부터 받기
     	mappings.put("/sending/info", new GetClientInfoController());
     	
-//    	근무정보 보여주기
+//    	근무정보 보여주기 (테스트 버전)
     	mappings.put("/working/member", new ShowMemberController());
     	mappings.put("/working/logInfo", new ShowLogInfoController());
     	mappings.put("/working/workingInfo", new ShowWorkingInfoController());
     	mappings.put("/working/captureImage", new ShowCaptureImageController());
     	
+//    	근무정보 보여주기 (실제 UI 적용 부분)
+    	mappings.put("/work/captureImage", new CaptureImageController());
+    	mappings.put("/work/detailLog", new DetailLogController());
     }
 
     public Controller findController(String uri) {

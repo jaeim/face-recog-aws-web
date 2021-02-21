@@ -65,4 +65,19 @@ public class WorkingInfoDAO {
 		
 		return result;
 	}
+	
+	public WorkingInfo selectLogInfoByWorkId(int work_id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		WorkingInfo workInfo = null;
+		try {
+			workInfo = sqlSession.getMapper(WorkingInfoMapper.class).selectLogInfoByWorkId(work_id);
+		}catch(Exception e) {
+			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
+		}
+		
+		return workInfo;
+	}
 }

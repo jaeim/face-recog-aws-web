@@ -21,6 +21,7 @@
 		SELECT COUNT(*)
 		FROM MNG_USR_TB
 	</select>
+	
 	<select id="selectOneMemberByLoginId" parameterType="String" resultMap="baseResultMap">
 		SELECT *
 		FROM MNG_USR_TB
@@ -39,4 +40,9 @@
 		WHERE login_id = #{login_id} and password = #{password}
 	</select>
 	
+	<insert id="insertMember" parameterType="Member" useGeneratedKeys="true" keyProperty="_id">
+		INSERT INTO MNG_USR_TB 
+	 	(login_id, password, name, image)
+	 	VALUES (#{login_id}, #{password}, #{member_name}, #{image_blob})
+	</insert>
 </mapper>

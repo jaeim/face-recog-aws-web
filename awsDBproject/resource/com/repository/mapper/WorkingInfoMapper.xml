@@ -14,6 +14,18 @@
 		<result column="LOG_ID" jdbcType="NUMERIC" property="log_id" />
 	</resultMap>
 	
+	<resultMap id="associationMap" type="WorkingInfo">
+		<id column="HISTORY_ID" jdbcType="NUMERIC" property="history_id" />
+		<association property="logInfo" column="LOG_ID" javaType="LogInfo">
+			<id property="LOG_ID" column="LOG_ID" />
+			<result property="CREATED_DT" column="CREATED_DT" />
+			<result property="TITLE" column="TITLE" />
+			<result property="USR_ID" column="USR_ID" />
+			<result property="PATH" column="PATH" />
+			<result property="IP" column="IP" />
+		</association>
+	</resultMap>
+	
 	<select id="selectWorkingInfoById" resultMap="WorkingInfoMap" parameterType="int">
 		SELECT *
 		FROM MNG_WORK_HISTORY_TB
@@ -26,7 +38,11 @@
 	 	VALUES (#{usr_id}, #{dateTime}, #{workType}, #{totalTime}, #{workTime}, #{notWorkTime}, #{log_id})
 	 </insert>
 	
-
+	<select id="selectLogInfoByWorkId" resultMap="associationMap" parameterType="int">
+		SELECT w.HISTORY_ID, l.LOG_ID, l.CREATED_DT, l.TITLE, l.USR_ID, l.PATH, l.IP
+		FROM MNG_WORK_HISTORY_TB w, MNG_LOG_TB l
+		WHERE w.LOG_ID = l.LOG_ID and w.HISTORY_ID=#{work_id}
+	</select>
 	
 </mapper>
 	

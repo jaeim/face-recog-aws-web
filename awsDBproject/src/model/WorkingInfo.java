@@ -13,6 +13,8 @@ public class WorkingInfo {
 	private int notWorkTime;
 	private int log_id;
 	
+	LogInfo logInfo;
+	
 	public WorkingInfo() {}
 
 	public WorkingInfo(int history_id, int usr_id, String dateTime, String workType, int totalTime, int workTime,
@@ -81,6 +83,14 @@ public class WorkingInfo {
 
 	public void setLog_id(int log_id) {
 		this.log_id = log_id;
+	}
+
+	public LogInfo getLogInfo() {
+		return logInfo;
+	}
+
+	public void setLogInfo(LogInfo logInfo) {
+		this.logInfo = logInfo;
 	}
 	
 	
