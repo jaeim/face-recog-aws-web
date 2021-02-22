@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 public class LogInfo {
 	private int LOG_ID;
 	private String CREATED_DT;
+	private String LOGOUT_DT;
 	private String TITLE;
 	private int USR_ID;
 	private String PATH;
@@ -83,6 +84,16 @@ public class LogInfo {
 
 	public void setIP(String iP) {
 		IP = iP;
+	}
+
+
+	public String getLOGOUT_DT() {
+		return LOGOUT_DT;
+	}
+
+
+	public void setLOGOUT_DT(String lOGOUT_DT) {
+		LOGOUT_DT = lOGOUT_DT;
 	}
 	
 	

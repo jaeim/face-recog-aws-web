@@ -15,7 +15,7 @@
 	</select>
 	
 	<insert id="insertLogInfo" parameterType="LogInfo" useGeneratedKeys="true" keyProperty="LOG_ID">
-		INSERT INTO MNG_LOG_TB (CREATED_DT, TITLE, PATH, USR_ID, IP)
-		VALUES (#{CREATED_DT}, #{TITLE}, #{PATH}, #{USR_ID}, #{IP})
+		INSERT INTO MNG_LOG_TB (CREATED_DT, TITLE, PATH, USR_ID, IP, LOGOUT_DT)
+		VALUES (#{CREATED_DT}, #{TITLE}, #{PATH}, #{USR_ID}, #{IP}, #{LOGOUT_DT})
 	</insert>
 </mapper>

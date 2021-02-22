@@ -74,15 +74,15 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-	<div class="container-fluid" style="height: 500px; width: 500px;">
+	<div class="container-fluid" style="height: 700px; width: 500px;">
 	    <!-- /.row -->
 	        <div class="row">
 	          <div class="col-12">
 	            <div class="card">
 	              <!-- /.card-header -->
-	              <div class="card-body table-responsive p-0" >
+	              <div class="card-body table-responsive p-0">
 	                    <div class="card-body">
-	                    <form method="post" enctype="multipart/form-data" action="<c:url value='/user/register' />">
+	                    <form method="post" enctype="multipart/form-data" action="f qjt<c:url value='/user/register' />">
 	                    	<div class="form-group">
 	                    		<div id='preview' >
     							</div>
@@ -141,8 +141,8 @@ var upload = document.querySelector('#upload');
 var preview = document.querySelector('#preview');
 
 upload.addEventListener('change',function (e) {
+	var pre_img = preview.childNodes[0];
     var get_file = e.target.files;
-
     var image = document.createElement('img');
 
     /* FileReader 객체 생성 */
@@ -169,7 +169,8 @@ upload.addEventListener('change',function (e) {
         console.log(2);
     }
 	image.style.cssText = 'width: auto; height: auto; max-width: 200px; max-height: 200px;'
-    preview.appendChild(image);
+    //preview.appendChild(image);
+	preview.replaceChild(image, pre_img);
 })
 </script>
 

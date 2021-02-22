@@ -57,7 +57,7 @@ public class RegisterMemberController implements Controller {
 	    	System.out.println("Insert Fail..");
 	    }
 	    
-		return null;
+	    return "redirect:/user/site-login";	
 	}
 
 }

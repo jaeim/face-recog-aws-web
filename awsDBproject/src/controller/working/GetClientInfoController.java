@@ -83,6 +83,8 @@ public class GetClientInfoController implements Controller {
 		
 //		로그파일 생성 시간 알아내기
 		String date = multipartRequest.getParameter("log_created");
+//		로그아웃 시간 알아내기
+		String logoutDate = multipartRequest.getParameter("logout_date");
 		
 //		사용자 IP 주소 가져오기
 		String IP = multipartRequest.getParameter("ip");
@@ -93,6 +95,7 @@ public class GetClientInfoController implements Controller {
 //		로그 정보 저장하기
 		LogInfo logInfo = new LogInfo();
 		logInfo.setCREATED_DT(date + ".0");
+		logInfo.setLOGOUT_DT(logoutDate);
 		logInfo.setPATH(path);
 		logInfo.setTITLE(logFileName);
 		logInfo.setUSR_ID(member.get_id());
