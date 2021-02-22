@@ -22,7 +22,8 @@ public class CaptureImageController implements Controller {
 		
 		request.setAttribute("imageInfoList", imageInfoList);
 		
-		return "/working/captureImage.jsp";
+		return "/working/imgGallery.jsp";
+//		return "/working/captureImage.jsp";
 	}
 
 }

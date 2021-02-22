@@ -20,6 +20,9 @@ public class SiteLoginController implements Controller{
 		existingSession = request.getSession();
 		// 설정 정보 수정후...이미 한번 로그인 했으므로 세션에 _id 속성 보유중임
 		if (existingSession.getAttribute(UserSessionUtils.USER_SESSION_KEY) != null) {
+			
+			System.out.println("해당 유저의 키값은? " + existingSession.getAttribute(UserSessionUtils.USER_SESSION_KEY));
+			
 			UserSessionUtils utils = new UserSessionUtils();
 			if(utils.hasLogined(existingSession)) {
 				Manager manager = Manager.getInstance();
@@ -53,6 +56,8 @@ public class SiteLoginController implements Controller{
 
 			HttpSession session = request.getSession();
 			session.setAttribute(UserSessionUtils.USER_SESSION_KEY, member.get_id());
+			
+			System.out.println("해당 유저의 키값은? " + existingSession.getAttribute(UserSessionUtils.USER_SESSION_KEY));
 			
 			UserSessionUtils utils = new UserSessionUtils();
 			if(utils.hasLogined(session)) {

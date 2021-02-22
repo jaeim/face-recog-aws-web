@@ -67,6 +67,11 @@
 				var hour = parseInt(seconds/3600);
 				var min = parseInt((seconds%3600)/60);
 				var sec = seconds%60;
+				
+				hour = addZero(hour);
+				min = addZero(min);
+				sec = addZero(sec);
+				
 				$(this).html(hour + ":" + min + ":" + sec);	
 			});		
 			$('.workTime').each( function() {
@@ -75,10 +80,20 @@
 				var hour = parseInt(seconds/3600);
 				var min = parseInt((seconds%3600)/60);
 				var sec = seconds%60;
-				$(this).html(hour + ":" + min + ":" + sec);	
+				
+				hour = addZero(hour);
+				min = addZero(min);
+				sec = addZero(sec);
+				// $(this).html(hour + ":" + min + ":" + sec);
+				$(this).text(hour + ":" + min + ":" + sec);
 			});		
 		}).fail(function (jqXHR, textStatus, errorThrown) { console.log("에러"); console.log(jqXHR); console.log(textStatus); console.log(errorThrown); });
 	}
+	
+	function addZero(num) {
+		  num < 10 ? num = `0` + num : num;
+		  return num;
+		}
 	
 	function viewMemberInfo(id) {
 		// alert(id);
