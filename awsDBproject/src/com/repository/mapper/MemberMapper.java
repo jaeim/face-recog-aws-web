@@ -15,4 +15,5 @@ public interface MemberMapper {
 	int countAllMember();
 	int insertMember(Member member);
 	int updateMember(Member member);
+	int updateMemberNoImage(Member member);
 }

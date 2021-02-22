@@ -62,6 +62,14 @@ public class Manager {
 		return false;
 	}
 	
+	public boolean updateMemberNoImage(Member member) {
+		int result = memberDAO.updateMemberNoImage(member);
+		if(result >= 1) {
+			return true;
+		}
+		return false;
+	}
+	
 	public Setting getSetting() throws NotFoundException {
 		Setting stg = settingDAO.selectSettingInfo();
 //		if (stg == null) {	throw new NotFoundException("설정 정보를 찾을 수 없습니다.");	}

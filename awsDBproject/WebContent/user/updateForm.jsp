@@ -32,10 +32,6 @@
 
 	<script>
 	function userUpdate(){
-		if(form1.upload.value == "") {
-			alert("사진을 첨부하세요");
-			return false;
-		}
 		if(form1.name.value == "") {
 			
 			alert("이름을 입력하십시오.");
@@ -53,7 +49,10 @@
 			form1.password.focus();
 			return false;
 		}
-
+		if(form1.upload.value == "") {
+			form1.action = form1.action + "&image=false"
+			form1.enctype = "form-data"
+		}
 
 		form1.submit();
 		

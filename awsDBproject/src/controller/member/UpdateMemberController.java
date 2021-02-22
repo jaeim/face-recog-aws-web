@@ -47,41 +47,65 @@ public class UpdateMemberController implements Controller {
 			return "/user/updateForm.jsp";
 		}
 		
-//		업데이트 요청
-		String path = "C:\\project\\awsworkspace\\userImage";
-		System.out.println(path);
-		int maxFileSize = 1024 * 1024 * 2;
-		
-//		전달 받은 이미지 저장
-		MultipartRequest multipartRequest = new MultipartRequest(request, path, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
-		Enumeration fileNames = multipartRequest.getFileNames();
-		String filename = "";
-		while(fileNames.hasMoreElements()) {
-			String key = (String) fileNames.nextElement();
-			filename = multipartRequest.getFile(key).getName();
-		}
-		System.out.println(filename);
-		
-//		저장한 이미지 다시 읽기 (db에 저장해야 하기 떄문에)
-		BufferedImage bImage = ImageIO.read(new File(path + "/" + filename));
-	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
-	    ImageIO.write(bImage, "jpeg", bos);
-	    byte [] image_blob = bos.toByteArray();
-		
+		String result = request.getParameter("image");
 	    Member member = new Member();
-	    member.setImage_blob(image_blob);
-	    member.set_id(Integer.valueOf(multipartRequest.getParameter("id")));
-	    member.setMember_name(multipartRequest.getParameter("name"));
-	    member.setLogin_id(multipartRequest.getParameter("login_id"));
-	    member.setPassword(multipartRequest.getParameter("password"));
 	    
-	    if(manager.updateMember(member)) {
-	    	System.out.println("Update Success!");
-	    }else {
-	    	System.out.println("Update fail..");
-	    }
-	    
-	    
+//		사진이 첨부되었을 때
+		if(result == null) {	
+			String path = "C:\\project\\awsworkspace\\userImage";
+			System.out.println(path);
+			int maxFileSize = 1024 * 1024 * 2;
+			
+//			전달 받은 이미지 저장
+			MultipartRequest multipartRequest = new MultipartRequest(request, path, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
+			Enumeration fileNames = multipartRequest.getFileNames();
+			if(fileNames == null) {
+				System.out.println("파일 이름 없음");
+			}
+			String filename = "";
+			while(fileNames.hasMoreElements()) {
+				String key = (String) fileNames.nextElement();
+				filename = multipartRequest.getFile(key).getName();
+			}
+			System.out.println(filename);
+			
+//			저장한 이미지 다시 읽기 (db에 저장해야 하기 떄문에)
+			BufferedImage bImage = ImageIO.read(new File(path + "/" + filename));
+		    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		    ImageIO.write(bImage, "jpeg", bos);
+		    byte [] image_blob = bos.toByteArray();
+			
+		    member.setImage_blob(image_blob);
+		    member.set_id(Integer.valueOf(multipartRequest.getParameter("id")));
+		    member.setMember_name(multipartRequest.getParameter("name"));
+		    member.setLogin_id(multipartRequest.getParameter("login_id"));
+		    member.setPassword(multipartRequest.getParameter("password"));
+		    
+		    if(manager.updateMember(member)) {
+		    	System.out.println("Update Success!");
+		    }else {
+		    	System.out.println("Update fail..");
+		    }
+		     
+//			사진이 첨부되지 않았을 때
+		}else {
+			System.out.println("result is " + result);
+			System.out.println(request.getParameter("login_id"));
+			System.out.println(request.getParameter("name"));
+			System.out.println(request.getParameter("password"));
+			member.set_id(Integer.valueOf(request.getParameter("id")));
+			member.setMember_name(request.getParameter("name"));
+			member.setLogin_id(request.getParameter("login_id"));
+			member.setPassword(request.getParameter("password"));
+			
+			if(manager.updateMemberNoImage(member)){
+		    	System.out.println("Update Success!");
+		    }else {
+		    	System.out.println("Update fail..");
+		    }
+			
+		}
+		
 		return "redirect:/user/update?id=" + member.get_id();
 	}
 
