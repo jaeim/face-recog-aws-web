@@ -22,6 +22,7 @@ public class RequestMapping {
     	mappings.put("/user/site-login", new SiteLoginController());
     	mappings.put("/user/registerForm", new ForwardController("/user/registerForm.jsp"));
     	mappings.put("/user/register", new RegisterMemberController());
+    	mappings.put("/user/workingHistory", new ViewWorkingHistoryByUserController());
     	
     	// 세팅정보
     	mappings.put("/setting/client", new SettingController());
@@ -40,7 +41,7 @@ public class RequestMapping {
     	
 //    	근무정보 보여주기 (실제 UI 적용 부분)
     	mappings.put("/work/captureImage", new CaptureImageController());
-    	mappings.put("/work/detailLog", new DetailLogController());
+    	//mappings.put("/work/detailLog", new DetailLogController());
     }
 
     public Controller findController(String uri) {

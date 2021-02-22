@@ -80,4 +80,19 @@ public class WorkingInfoDAO {
 		
 		return workInfo;
 	}
+	
+	public ArrayList<WorkingInfo> selectWorkingInfoAndLogInfoById(int _id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		ArrayList<WorkingInfo> workInfoList = null;
+		try {
+			workInfoList = sqlSession.getMapper(WorkingInfoMapper.class).selectWorkingInfoAndLogInfoById(_id);
+		}catch(Exception e) {
+			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
+		}
+		
+		return workInfoList;
+	}
 }

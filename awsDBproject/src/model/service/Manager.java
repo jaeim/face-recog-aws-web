@@ -135,4 +135,10 @@ public class Manager {
 		
 		return false;
 	}
+	// 근무자 기본키로 근무기록과 그에 맞는 로그 객체 반환
+	public ArrayList<WorkingInfo> selectWorkingInfoAndLogInfoById(int _id) {
+		ArrayList<WorkingInfo> workingInfoList = null;
+		workingInfoList = workingInfoDAO.selectWorkingInfoAndLogInfoById(_id);
+		return workingInfoList;
+	}
 }
