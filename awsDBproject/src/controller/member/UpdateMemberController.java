@@ -8,6 +8,7 @@ import java.util.Enumeration;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -24,7 +25,22 @@ public class UpdateMemberController implements Controller {
 		Manager manager = Manager.getInstance();
 //		폼 요청
 		if(request.getMethod().equals("GET")) {
-			int id = Integer.valueOf(request.getParameter("id"));
+			String str_id = request.getParameter("id");
+			int id = -1;
+			if(str_id == null) {
+				HttpSession session = request.getSession();
+				id = (int) session.getAttribute(UserSessionUtils.USER_SESSION_KEY);
+				System.out.println(id);
+			}
+			if(str_id != null) {
+				id = Integer.valueOf(str_id);
+			}
+
+			if(id == -1) {
+//				오류
+				return null; 
+			}
+			
 			Member member = manager.getOneMemberById(id);
 			
 			request.setAttribute("member", member);
