@@ -186,7 +186,7 @@
 					<li class="nav-item active"><a class="nav-link" href="#">메인
 							화면 <span class="sr-only">(current)</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">내 정보</a></li>
+					<li class="nav-item"><a class="nav-link" href="<c:url value='/user/updateForm' />">내 정보</a></li>
 					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
 					</li>
 				</ul>

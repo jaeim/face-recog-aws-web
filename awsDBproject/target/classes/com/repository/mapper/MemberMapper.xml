@@ -45,4 +45,16 @@
 	 	(login_id, password, name, image)
 	 	VALUES (#{login_id}, #{password}, #{member_name}, #{image_blob})
 	</insert>
+	
+	<update id="updateMember" parameterType="Member">
+		UPDATE MNG_USR_TB
+		SET login_id=#{login_id}, password=#{password}, name=#{member_name}, image=#{image_blob}
+		WHERE id=#{_id}
+	</update>
+	
+	<update id="updateMemberNoImage" parameterType="Member">
+		UPDATE MNG_USR_TB
+		SET login_id=#{login_id}, password=#{password}, name=#{member_name}
+		WHERE id=#{_id}
+	</update>
 </mapper>
