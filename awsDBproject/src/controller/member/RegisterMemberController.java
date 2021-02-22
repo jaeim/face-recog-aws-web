@@ -37,6 +37,7 @@ public class RegisterMemberController implements Controller {
 		System.out.println(filename);
 		
 //		저장한 이미지 다시 읽기 (db에 저장해야 하기 떄문에)
+		
 		BufferedImage bImage = ImageIO.read(new File(path + "/" + filename));
 	    ByteArrayOutputStream bos = new ByteArrayOutputStream();
 	    ImageIO.write(bImage, "jpeg", bos);
