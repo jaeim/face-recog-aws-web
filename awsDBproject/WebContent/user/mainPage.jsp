@@ -113,15 +113,9 @@
 		$("#memberInfoContainer").empty();
 	}
 	
-	function test1(seconds) {
-
-		var hour = parseInt(seconds/3600);
-		var min = parseInt((seconds%3600)/60);
-		var sec = seconds%60;
-
-		document.getElementById("demo").innerHTML = hour + ":" + min + ":" + sec
-
-		}
+	function closeWorkingHistory() {
+		$("#workingHistoryContainer").empty();
+	}
 	
 	$(document).ready(function () {
 	    var seconds = $('#totalTime').text();
@@ -275,15 +269,17 @@
 					</div>
 				</div>
 				<!-- row -->
+				
 				<div class="row">
 					<div class="col-10"></div>
 					<!-- /.col -->
 					<div class="col-2">
-						<button type="button" class="btn btn-primary btn-block"
-							onclick="settingModify();">근무자 등록</button>
+						<!--  <button type="button" class="btn btn-primary btn-block"
+							onclick="settingModify();">근무자 등록</button> -->
 					</div>
 					<!-- /.col -->
 				</div>
+				
 			</div>
 			<br />
 
@@ -295,7 +291,17 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
+							<div class="row">
+								<div class="col-10">
 								<h3 class="card-title">근무자 목록</h3>
+								</div>
+								
+								<div class="col-2">
+									<button type="button" class="btn btn-primary btn-block"
+							onclick="location.href='${pageContext.request.contextPath}/user/registerForm'">근무자 등록</button>
+								</div>
+								</div>
+								
 
 								<div class="card-tools">
 									<div class="input-group input-group-sm" style="width: 150px;">

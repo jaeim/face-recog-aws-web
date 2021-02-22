@@ -33,15 +33,15 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
+								<div class="row">
+								<div class="col-11">
 								<h3 class="card-title"><b>${member.member_name }</b>의 근무기록</h3>
-
-								<div class="card-tools">
-									<div class="input-group input-group-sm" style="width: 150px;">
-										<!-- 검색어 입력창 삭제 -->
-										<div class="input-group-append">
-											<!-- 돋보기 아이콘 삭제 -->
-										</div>
-									</div>
+								</div>
+								
+								<div class="col-1">
+									<button type="button" id="closeBtn"
+								class="btn btn-primary btn-block " onclick="closeWorkingHistory();">닫기</button>
+								</div>
 								</div>
 							</div>
 							<!-- /.card-header -->
@@ -74,7 +74,10 @@
 													<fmt:parseDate value="${workingInfo.logInfo.CREATED_DT }" var="loginTime" pattern="yyyy-MM-dd HH:mm:ss"/>
 													<fmt:formatDate value="${loginTime}" pattern="HH:mm:ss"/>
 												</td>
-												<td>추후 수정 예정</td>
+												<td>
+													<fmt:parseDate value="${workingInfo.logInfo.LOGOUT_DT }" var="logoutTime" pattern="yyyy-MM-dd HH:mm:ss"/>
+													<fmt:formatDate value="${logoutTime}" pattern="HH:mm:ss"/>
+												</td>
 												<td class="totalTime">                   
 													${workingInfo.totalTime }	
 												</td>
@@ -82,17 +85,27 @@
 													${workingInfo.workTime }
 												</td>
 												<td>
-													<button type="button" class="btn btn-light"
-														onclick="">추후 수정</button>
+													<c:choose>
+														<c:when test="${workingInfo.workType eq 'real'}">
+															<button type="button" class="btn btn-outline-secondary"
+															onclick="">상세보기</button>
+														</c:when>
+														<c:otherwise>
+															<button type="button" class="btn btn-light"
+															onclick="" disabled>조회불가</button>
+														</c:otherwise>
+													</c:choose>
+													
 												</td>
 												<td>
-													<button type="button" class="btn btn-light"
+													<button type="button" class="btn btn-outline-secondary"
 														onclick="">추후 수정</button>
 												</td>
 											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
+								
 							</div>
 							<!-- /.card-body -->
 						</div>

@@ -40,6 +40,7 @@
 			<!-- <p class="text-muted text-center">Software Engineer</p> -->
 
 			<ul class="list-group list-group-unbordered mb-3">
+			
 				<li class="list-group-item"><b>Id</b> <a class="float-right">${member.login_id }</a>
 				</li>
 				<li class="list-group-item"><b>Password</b> <a

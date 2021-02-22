@@ -82,7 +82,7 @@
 	              <!-- /.card-header -->
 	              <div class="card-body table-responsive p-0">
 	                    <div class="card-body">
-	                    <form method="post" enctype="multipart/form-data" action="f qjt<c:url value='/user/register' />">
+	                    <form method="post" enctype="multipart/form-data" action="<c:url value='/user/register' />">
 	                    	<div class="form-group">
 	                    		<div id='preview' >
     							</div>
