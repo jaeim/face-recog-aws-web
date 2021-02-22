@@ -12,6 +12,20 @@ public class LogInfo {
 	private String PATH;
 	private String IP;
 	
+	
+	
+	public LogInfo(int lOG_ID, String cREATED_DT, String lOGOUT_DT, String tITLE, int uSR_ID, String pATH, String iP) {
+		super();
+		LOG_ID = lOG_ID;
+		CREATED_DT = cREATED_DT;
+		LOGOUT_DT = lOGOUT_DT;
+		TITLE = tITLE;
+		USR_ID = uSR_ID;
+		PATH = pATH;
+		IP = iP;
+	}
+
+
 	public LogInfo(int lOG_ID, String cREATED_DT, String tITLE, int uSR_ID, String pATH) {
 		super();
 		LOG_ID = lOG_ID;

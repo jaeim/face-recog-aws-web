@@ -6,6 +6,7 @@
 	<select id="selectLogInfoById" resultType="LogInfo" parameterType="int">
 		SELECT LOG_ID,
 			CREATED_DT,
+			LOGOUT_DT,
 			TITLE,
 			PATH,
 			USR_ID,

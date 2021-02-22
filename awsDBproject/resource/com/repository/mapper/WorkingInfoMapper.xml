@@ -19,6 +19,7 @@
 		<association property="logInfo" column="LOG_ID" javaType="LogInfo">
 			<id property="LOG_ID" column="LOG_ID" />
 			<result property="CREATED_DT" column="CREATED_DT" />
+			<result property="LOGOUT_DT" column="LOGOUT_DT" />
 			<result property="TITLE" column="TITLE" />
 			<result property="USR_ID" column="USR_ID" />
 			<result property="PATH" column="PATH" />
@@ -38,6 +39,7 @@
 		<association property="logInfo" column="LOG_ID" javaType="LogInfo">
 			<id property="LOG_ID" column="LOG_ID" />
 			<result property="CREATED_DT" column="CREATED_DT" />
+			<result property="LOGOUT_DT" column="LOGOUT_DT" />
 			<result property="TITLE" column="TITLE" />
 			<result property="USR_ID" column="USR_ID" />
 			<result property="PATH" column="PATH" />
@@ -58,7 +60,7 @@
 	 </insert>
 	
 	<select id="selectLogInfoByWorkId" resultMap="associationMap" parameterType="int">
-		SELECT w.HISTORY_ID, l.LOG_ID, l.CREATED_DT, l.TITLE, l.USR_ID, l.PATH, l.IP
+		SELECT w.HISTORY_ID, l.LOG_ID, l.CREATED_DT, l.LOGOUT_DT, l.TITLE, l.USR_ID, l.PATH, l.IP
 		FROM MNG_WORK_HISTORY_TB w, MNG_LOG_TB l
 		WHERE w.LOG_ID = l.LOG_ID and w.HISTORY_ID=#{work_id}
 	</select>
