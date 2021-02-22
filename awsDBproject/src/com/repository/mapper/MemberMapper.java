@@ -14,4 +14,5 @@ public interface MemberMapper {
 	Member loginCheck(@Param("login_id") String login_id, @Param("password") String password);
 	int countAllMember();
 	int insertMember(Member member);
+	int updateMember(Member member);
 }

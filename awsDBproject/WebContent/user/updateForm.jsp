@@ -31,7 +31,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">  
 
 	<script>
-	function userCreate(){
+	function userUpdate(){
 		if(form1.upload.value == "") {
 			alert("사진을 첨부하세요");
 			return false;
@@ -42,7 +42,7 @@
 			form1.name.focus();
 			return false;
 		}
-		if(form1.id.value == "") {
+		if(form1.login_id.value == "") {
 			
 			alert("아이디를 입력하십시오.");
 			form1.id.focus();
@@ -95,12 +95,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>근무자 등록</h1>
+            <h1>근무자 정보 수정</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Main Page</a></li>
-              <li class="breadcrumb-item active">근무자 등록</li>
+              <li class="breadcrumb-item active">근무자 정보 수정</li>
             </ol>
           </div>
         </div>
@@ -114,25 +114,28 @@
 	              <!-- /.card-header -->
 	              <div class="card-body table-responsive p-0">
 	                    <div class="card-body">
-	                    <form method="post" align="center" enctype="multipart/form-data" id="form1" action="<c:url value='/user/register' />">
+	                    <form method="post" align="center" enctype="multipart/form-data" id="form1" action="<c:url value='/user/update' >
+					<c:param name='id' value='${member._id}' />
+					</c:url>">
 	                    	<div class="form-group">
 	                    		<div id='preview' >
+	                    			<img src="data:image/jpeg;base64,${member.image_encoded}" alt="사진로드 실패" style="width: auto; height: auto; max-width: 200px; max-height: 200px;"/>
     							</div>
     						</div>
 	                   		<div class="form-group">
 	                    		<input type='file' accept="image/jpeg" id='upload' name='upload'>
 							</div>
                 			<div class="form-group">
-                  				<input class="form-control" placeholder="이름" name="name">
+                  				<input class="form-control" placeholder="이름" name="name" value="${member.member_name }">
                 			</div>
                 			<div class="form-group">
-                  				<input class="form-control" placeholder="아이디" name="id">
+                  				<input class="form-control" placeholder="아이디" name="login_id" value="${member.login_id }">
                 			</div>
                 			<div class="form-group">
-                  				<input class="form-control" placeholder="비밀번호" name="password">
+                  				<input class="form-control" placeholder="비밀번호" name="password" value="${member.password }">
                 			</div>
                 		
-                			<button type="button" class="btn btn-primary" onClick="userCreate()">Submit</button>
+                			<button type="button" class="btn btn-primary" onClick="userUpdate()">Update</button>
                 		</form>
                 		</div> 
 	              </div>
@@ -173,7 +176,7 @@ var upload = document.querySelector('#upload');
 var preview = document.querySelector('#preview');
 
 upload.addEventListener('change',function (e) {
-	var pre_img = preview.childNodes[0];
+	var pre_img = preview.childNodes[1];
     var get_file = e.target.files;
     var image = document.createElement('img');
 
