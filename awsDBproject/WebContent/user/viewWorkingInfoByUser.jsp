@@ -57,7 +57,7 @@
 											<th>로그아웃시각</th>
 											<th>총근무시간</th>
 											<th>인정근무시간</th>
-											<th>태만기록</th>
+											<th>태만탐지화면</th>
 											<th>근무통계</th>
 										</tr>
 									</thead>
@@ -92,14 +92,14 @@
 														</c:when>
 														<c:otherwise>
 															<button type="button" class="btn btn-light"
-															onclick="" disabled>조회불가</button>
+															onclick="" disabled>정보없음</button>
 														</c:otherwise>
 													</c:choose>
 													
 												</td>
 												<td>
 													<button type="button" class="btn btn-outline-secondary"
-														onclick="">추후 수정</button>
+														onclick="location.href='${pageContext.request.contextPath}/work/detailLog?workId=${workingInfo.history_id}'">로그보기</button>
 												</td>
 											</tr>
 										</c:forEach>
