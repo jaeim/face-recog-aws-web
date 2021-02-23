@@ -102,6 +102,12 @@ public class Manager {
 		return workInfo;
 	}
 	
+	public int selectWorkTimeForToday(int userId, String workingDate) {
+		int workTime = workingInfoDAO.selectWorkTimeForToday(userId, workingDate);
+		
+		return workTime;
+	}
+	
 	public ArrayList<LogInfo> getLogInfoById(int user_id) {
 		ArrayList<LogInfo> logInfoList = logInfoDAO.selectLogInfoById(user_id);
 		

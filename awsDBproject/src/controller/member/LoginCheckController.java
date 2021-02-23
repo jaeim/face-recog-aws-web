@@ -1,5 +1,8 @@
 package controller.member;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -25,10 +28,20 @@ public class LoginCheckController implements Controller {
 			return "/user/fail.jsp";
 		}
 		
+//		오늘 날짜
+		SimpleDateFormat timeFormat = new SimpleDateFormat ( "yyyy-MM-dd");		
+		Date time = new Date();
+		String workingDate = timeFormat.format(time);
+		System.out.println(workingDate);
+		
+		int workTime = manager.selectWorkTimeForToday(member.get_id(), workingDate);
+		System.out.println(workTime + "초");
+		
 //		여기서 response해도 괜찮지 않을까?
 //		응답이 이미 커밋된 후에는 forward할 수 없다는 오류가 뜬다.
 		
 		request.setAttribute("member", member);
+		request.setAttribute("workTime", workTime);
 		return "/user/result.jsp";
 	}
 

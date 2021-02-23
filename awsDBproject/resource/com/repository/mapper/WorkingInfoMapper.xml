@@ -71,6 +71,11 @@
 		WHERE w.LOG_ID = l.LOG_ID and w.usr_id = #{_id};
 	</select>
 	
+	<select id="selectWorkTimeForToday" resultType="int">
+		SELECT SUM(WORK_SEC)
+		FROM MNG_WORK_HISTORY_TB
+		WHERE USR_ID=#{usr_id} and WORKING_DT LIKE CONCAT(#{working_dt},'%')
+	</select>
 	
 </mapper>
 	

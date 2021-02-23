@@ -95,4 +95,19 @@ public class WorkingInfoDAO {
 		
 		return workInfoList;
 	}
+	
+	public int selectWorkTimeForToday(int userId, String workingDate) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int workTime = 0;
+		try {
+			workTime = sqlSession.getMapper(WorkingInfoMapper.class).selectWorkTimeForToday(userId, workingDate);
+		}catch(Exception e) {
+			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
+		}
+		
+		return workTime;
+	}
 }
