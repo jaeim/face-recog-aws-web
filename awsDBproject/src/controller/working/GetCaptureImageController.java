@@ -23,8 +23,8 @@ public class GetCaptureImageController implements Controller {
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH-mm-SS");
 		System.out.println(format.format(now));
-		
-		String path="C:\\Users\\yoo77\\Image\\capture";
+		String path = "/home/ubuntu/log";
+//		String path="C:\\Users\\yoo77\\Image\\capture";
 		int maxFileSize = 1024 * 1024 * 15;
 		MultipartRequest mRequest = new MultipartRequest(request, path, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
 		String imageName = mRequest.getFile("image").getName();
