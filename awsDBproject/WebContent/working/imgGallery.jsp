@@ -10,6 +10,7 @@
 <%@page import="java.awt.image.BufferedImage" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,10 +39,10 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">메인 화면 <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="<c:url value='/user/site-login' />">메인 화면 <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">내 정보</a>
+        <a class="nav-link" href="<c:url value='/user/updateForm' />">내 정보</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
@@ -79,7 +80,12 @@
           <div class="col-12">
             <div class="card card-primary">
               <div class="card-header">
-                <h4 class="card-title">태만감지 화면내역</h4>
+                <h4 class="card-title">${memberName}의 태만감지 화면내역 / 근무일자 : 
+                <b>
+                	<fmt:parseDate value="${workingInfo.dateTime }" var="postDate" pattern="yyyy-MM-dd HH:mm:ss"/>
+					<fmt:formatDate value="${postDate}" pattern="yyyy-MM-dd"/>
+                </b>
+                </h4>
               </div>
               <div class="card-body">
                 <div class="row">
@@ -88,7 +94,14 @@
                   
                   <c:forEach var="imageInfo" items="${imageInfoList}" varStatus="status" >
                 		<c:set var="imageInfo" value="${imageInfo }" />
-                			<div class="col-sm-2">
+                			<div class="col-md-3">
+                			<div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">${imageInfo.TITLE }</h3>
+
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
                 				<%
 									ImageInfo imageInfo = (ImageInfo) pageContext.getAttribute("imageInfo");
 									
@@ -112,13 +125,17 @@
 									}
 								%>
 								<c:if test="${result == 1 }">
+									
 									<a href="data:image/jpeg;base64,${imageBase64}" data-toggle="lightbox" data-title="${imageInfo.TITLE }" data-gallery="gallery">
 										<img src="data:image/jpeg;base64,${imageBase64}" class="img-fluid mb-2" alt="이미지 로드 실패"/>
 									</a>
+									
 								</c:if>
 								<c:if test="${result == 0 }">
 									<p>이미지를 불러올 수 없습니다</p>
 								</c:if>
+								</div>
+								</div>
                 			</div>
                 	</c:forEach>
                   

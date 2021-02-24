@@ -88,7 +88,7 @@
 													<c:choose>
 														<c:when test="${workingInfo.workType eq 'real'}">
 															<button type="button" class="btn btn-outline-secondary"
-															onclick="location.href='${pageContext.request.contextPath}/work/captureImage?workId=${workingInfo.history_id}'">상세보기</button>
+															onclick="location.href='${pageContext.request.contextPath}/work/captureImage?workId=${workingInfo.history_id}&memberName=${member.member_name }'">상세보기</button>
 														</c:when>
 														<c:otherwise>
 															<button type="button" class="btn btn-light"

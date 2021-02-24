@@ -25,6 +25,7 @@ public class RequestMapping {
     	mappings.put("/user/workingHistory", new ViewWorkingHistoryByUserController());
     	mappings.put("/user/updateForm", new UpdateMemberController());
     	mappings.put("/user/update", new UpdateMemberController());
+    	mappings.put("/user/logout", new LogoutController());
     	
     	// 세팅정보
     	mappings.put("/setting/client", new SettingController());

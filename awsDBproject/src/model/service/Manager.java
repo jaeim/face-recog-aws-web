@@ -163,4 +163,10 @@ public class Manager {
 		workingInfoList = workingInfoDAO.selectWorkingInfoAndLogInfoById(_id);
 		return workingInfoList;
 	}
+	
+	public WorkingInfo selectWorkInfoByWorkId(int workId) {
+		WorkingInfo info = null;
+		info = workingInfoDAO.selectWorkInfoByWorkId(workId);
+		return info;
+	}
 }

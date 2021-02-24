@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -8,6 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>홈 화면</title>
 <script src="scripts/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript">
+ window.history.forward();
+ function noBack(){window.history.forward();}
+</script>
+
+
 <script>
 	function settingModify(){
 	
@@ -132,15 +139,7 @@
 		$("#workingHistoryContainer").empty();
 	}
 	
-	$(document).ready(function () {
-	    var seconds = $('#totalTime').text();
-	    var hour = parseInt(seconds/3600);
-		var min = parseInt((seconds%3600)/60);
-		var sec = seconds%60;
-		
-		document.getElementById("totalTime").innerHTML = hour + ":" + min + ":" + sec
-	    //$('#totalTime').val(total);
-	});
+	
 	
 </script>
 
@@ -169,7 +168,7 @@
 	crossorigin="anonymous">
 
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini"  onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 	<!-- Site wrapper -->
 	<div class="wrapper">
 
@@ -191,6 +190,13 @@
 					</li>
 				</ul>
 			</div>
+			<!-- location.href='${pageContext.request.contextPath}/user/logout' -->
+			
+		<button type="button" class="btn btn-outline-secondary" onclick="location.href='${pageContext.request.contextPath}/user/logout'">로그아웃</button>
+									
+			
+			 
+    
 		</nav>
 		<!-- /.navbar -->
 

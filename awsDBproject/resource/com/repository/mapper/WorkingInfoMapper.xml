@@ -77,5 +77,12 @@
 		WHERE USR_ID=#{usr_id} and WORKING_DT LIKE CONCAT(#{working_dt},'%')
 	</select>
 	
+	<select id="selectWorkInfoByWorkId" resultMap="WorkingInfoMap">
+		SELECT *
+		FROM MNG_WORK_HISTORY_TB w
+		WHERE w.HISTORY_ID=#{work_id}
+		
+	</select>
+	
 </mapper>
 	

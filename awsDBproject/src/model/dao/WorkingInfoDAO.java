@@ -110,4 +110,16 @@ public class WorkingInfoDAO {
 		
 		return workTime;
 	}
+	
+	public WorkingInfo selectWorkInfoByWorkId(int workId) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		WorkingInfo info = null;
+		try {
+			info = sqlSession.getMapper(WorkingInfoMapper.class).selectWorkInfoByWorkId(workId);
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+		} finally {
+			sqlSession.close();	
+		} return info;
+	}
 }
