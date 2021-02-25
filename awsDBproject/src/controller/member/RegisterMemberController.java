@@ -45,20 +45,28 @@ public class RegisterMemberController implements Controller {
 	    
 	    System.out.println(image_blob);
 	    
-	    Member member = new Member();
-	    member.setImage_blob(image_blob);
-	    member.setLogin_id(multipartRequest.getParameter("id"));
-	    member.setMember_name(multipartRequest.getParameter("name"));
-	    member.setPassword(multipartRequest.getParameter("password"));
+	    String login_id = multipartRequest.getParameter("id");
+	    String name = multipartRequest.getParameter("name");
+	    String password = multipartRequest.getParameter("password1");
 	    
-	    Manager manager = Manager.getInstance();
-	    if(manager.insertMember(member)) {
-	    	System.out.println("Insert Success!");
-	    }else {
-	    	System.out.println("Insert Fail..");
+	    if(login_id != null && name != null && password != null) {
+	    	Member member = new Member();
+	    	member.setImage_blob(image_blob);
+	    	member.setLogin_id(login_id);
+	    	member.setMember_name(name);
+	    	member.setPassword(password);
+	    
+	    	Manager manager = Manager.getInstance();
+	    	if(manager.insertMember(member)) {
+	    		System.out.println("Insert Success!");
+	    	}else {
+	    		System.out.println("Insert Fail..");
+	    	}
+	    }else {    
+	    	System.out.println("Some parameters are null..");
 	    }
 	    
-	    return "redirect:/user/site-login";	
+    	return "redirect:/user/site-login";	
 	}
 
 }

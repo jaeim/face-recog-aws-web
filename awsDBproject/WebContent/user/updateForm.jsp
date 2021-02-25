@@ -49,11 +49,21 @@
 			form1.password.focus();
 			return false;
 		}
+		if(form1.password2.value == "") {
+			alert("비밀번호 체크를 입력하십시오.");
+			form1.password2.focus();
+			return false;
+		}
+		if(form1.password.value != form1.password2.value) {
+			alert("비밀번호가 일치하지 않습니다.");
+			form1.password.focus();
+			return false;
+		}
 		if(form1.upload.value == "") {
 			form1.action = form1.action + "&image=false"
 			form1.enctype = "form-data"
 		}
-
+		
 		form1.submit();
 		
 	}
@@ -125,15 +135,41 @@
 	                    		<input type='file' accept="image/jpeg" id='upload' name='upload'>
 							</div>
                 			<div class="form-group">
-                  				<input class="form-control" placeholder="이름" name="name" value="${member.member_name }">
+                			<div class="input-group mb-3">
+                  					<div class="input-group-prepend">
+                    					<button type="button" class="btn btn-danger" style="background-color:gray; border: none;" disabled>&nbsp;&nbsp;Name&nbsp;&nbsp;</button>
+                 					 </div>
+                  					<!-- /btn-group -->
+                  					<input type="text" class="form-control" name="name" value="${member.member_name }">
+               					 </div>
                 			</div>
                 			<div class="form-group">
-                  				<input class="form-control" placeholder="아이디" name="login_id" value="${member.login_id }">
+                			<div class="input-group mb-3">
+                  					<div class="input-group-prepend">
+                    					<button type="button" class="btn btn-danger" style="background-color:gray; border: none;" disabled>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Id&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                 					 </div>
+                  					<!-- /btn-group -->
+                  					<input type="text" class="form-control" name="login_id" value="${member.login_id }">
+               					 </div>
                 			</div>
                 			<div class="form-group">
-                  				<input class="form-control" placeholder="비밀번호" name="password" value="${member.password }">
+                				<div class="input-group mb-3">
+                  					<div class="input-group-prepend">
+                    					<button type="button" class="btn btn-danger" style="background-color:gray; border: none;" disabled>Password</button>
+                 					 </div>
+                  					<!-- /btn-group -->
+                  					<input type="password" class="form-control" name="password" value="${member.password }">
+               					 </div>
                 			</div>
-                		
+                			<div class="form-group">
+                				<div class="input-group mb-3">
+                  					<div class="input-group-prepend">
+                    					<button type="button" class="btn btn-danger" style="background-color:gray; border: none;" disabled>Password Check</button>
+                 					 </div>
+                  					<!-- /btn-group -->
+                  					<input type="password" class="form-control" name="password2" value="${member.password }">
+               					 </div>
+                			</div>
                 			<button type="button" class="btn btn-primary" onClick="userUpdate()">Update</button>
                 		</form>
                 		</div> 
