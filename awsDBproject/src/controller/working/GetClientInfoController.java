@@ -36,6 +36,8 @@ public class GetClientInfoController implements Controller {
 		// TODO Auto-generated method stub
 		Manager manager = Manager.getInstance();
 		
+		boolean previousSuccess = false;
+		
 //		request 정보 띄우기
 		Enumeration<String> eHeader = request.getHeaderNames();
 		while (eHeader.hasMoreElements()) {
@@ -102,6 +104,7 @@ public class GetClientInfoController implements Controller {
 		logInfo.setIP(IP);
 		
 		if(manager.insertLogInfo(logInfo)) {
+			previousSuccess = true;
 			System.out.println("insert logInfo");
 		}else {
 			System.out.println("error with inserting logInfo");
@@ -129,13 +132,18 @@ public class GetClientInfoController implements Controller {
 			if(workingInfo.getWorkType().equals("real")) {
 				work_id = ((BigInteger) workInfoJson.get("id")).intValue();
 			}
-			if(manager.insertWorkingInfo(workingInfo)) {
-				System.out.println("Insert WorkingInfo");
-//				System.out.println("working Info primary key : " + workingInfo.getHistory_id());
-//				work_id에 맞는 workingInfo의 primary key를 매칭
-				workImageMap.put(work_id, workingInfo.getHistory_id());
-			}else {
-				System.out.println("Error with Inserting WorkingInfo");
+			
+			if(previousSuccess) {
+				if(manager.insertWorkingInfo(workingInfo)) {
+					System.out.println("Insert WorkingInfo");
+//					System.out.println("working Info primary key : " + workingInfo.getHistory_id());
+//					work_id에 맞는 workingInfo의 primary key를 매칭
+					workImageMap.put(work_id, workingInfo.getHistory_id());
+					previousSuccess = true;
+				}else {
+					previousSuccess = false;
+					System.out.println("Error with Inserting WorkingInfo");
+				}
 			}
 		}
 		
@@ -161,10 +169,14 @@ public class GetClientInfoController implements Controller {
 			imageInfo.setWORK_ID(history_id);
 			imageInfo.setDATE(string_date);
 			
-			if(manager.insertImageInfo(imageInfo)) {
-				System.out.println("Insert ImageInfo");
-			}else {
-				System.out.println("Error with Inserting ImageInfo");
+			if(previousSuccess) {
+				if(manager.insertImageInfo(imageInfo)) {
+					System.out.println("Insert ImageInfo");
+					previousSuccess = true;
+				}else {
+					previousSuccess = false;
+					System.out.println("Error with Inserting ImageInfo");
+				}
 			}
 		}
 		

@@ -56,7 +56,7 @@
 		}
 		if(form1.password.value != form1.password2.value) {
 			alert("비밀번호가 일치하지 않습니다.");
-			form1.password.focus();
+			form1.passwo	rd.focus();
 			return false;
 		}
 		if(form1.upload.value == "") {
