@@ -84,5 +84,10 @@
 		
 	</select>
 	
+	<delete id="deleteWorkInfoByWorkId" parameterType="int">
+		DELETE
+		FROM MNG_WORK_HISTORY_TB w
+		WHERE w.HISTORY_ID=#{work_id}
+	</delete>
 </mapper>
 	

@@ -48,8 +48,12 @@
 			</ul>
 
 			<div class="row">
-				<div class="col-10"></div>
+				<div class="col-8"></div>
 				<!-- /.col -->
+				<div class="col-2">
+					<button type="button" id="deleteBtn"
+						class="btn btn-primary btn-block" onclick="location.href='${pageContext.request.contextPath}/user/delete?member_id=${member._id}';">삭제</button>
+				</div>
 				<div class="col-2">
 					<button type="button" id="closeBtn"
 						class="btn btn-primary btn-block" onclick="closeInfo();">닫기</button>

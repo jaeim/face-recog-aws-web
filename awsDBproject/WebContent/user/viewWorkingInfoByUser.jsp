@@ -59,11 +59,12 @@
 											<th>인정근무시간</th>
 											<th>태만탐지화면</th>
 											<th>근무통계</th>
+											<th>삭제하기</th>
 										</tr>
 									</thead>
 									<tbody>
 										<c:forEach var="workingInfo" items="${workingInfoList}" varStatus="status">
-											<tr>
+											<tr id="${workingInfo.history_id}">
 												<td><c:out value='${status.count }' /></td>
 												<td>${workingInfo.workType }</td>
 												<td>
@@ -100,6 +101,10 @@
 												<td>
 													<button type="button" class="btn btn-outline-secondary"
 														onclick="location.href='${pageContext.request.contextPath}/work/detailLog?workId=${workingInfo.history_id}'">로그보기</button>
+												</td>
+												<td>
+													<button type="button" class="btn btn-outline-secondary"
+														onclick="deleteHistory('${workingInfo.history_id}','${member._id }');">삭제</button>
 												</td>
 											</tr>
 										</c:forEach>

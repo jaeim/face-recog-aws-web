@@ -169,4 +169,12 @@ public class Manager {
 		info = workingInfoDAO.selectWorkInfoByWorkId(workId);
 		return info;
 	}
+	
+	public int deleteMemberById(int id) {
+		return memberDAO.deleteMemberById(id);
+	}
+	
+	public int deleteWorkInfoByWorkId(int workId) {
+		return workingInfoDAO.deleteWorkInfoByWorkId(workId);
+	}
 }
