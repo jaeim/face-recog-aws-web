@@ -135,6 +135,34 @@
 		$("#memberInfoContainer").empty();
 	}
 	
+	function deleteUser(id) {
+		//location.href= pageContext.request.contextPath + "/user/delete?member_id=" + id;
+	}
+	
+	function deleteHistory(workInfo_id, member_id) {
+		// alert(workInfo_id);
+		// console.log(workInfo_id + "잘 들어옴!");
+		$.ajax ({
+			url : '${pageContext.request.contextPath}/working/deleteInfo',
+			type : 'POST',
+			data : jQuery.param({ work_id : workInfo_id }) ,
+		    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+			dataType : "text",
+			// contentType: false,
+			processData: false,
+			cache : false,
+			error:function(request,status,error){
+			        alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+			        
+			}
+
+		}).done(function(result) {
+			// 서버에서 삭제가 잘 진행된 뒤 해당 tr을 삭제한다.
+			console.log("결과확인");
+			$("tr#" + workInfo_id).remove();
+		}).fail(function (jqXHR, textStatus, errorThrown) { console.log("에러"); console.log(jqXHR); console.log(textStatus); console.log(errorThrown); });
+	}
+	
 	function closeWorkingHistory() {
 		$("#workingHistoryContainer").empty();
 	}

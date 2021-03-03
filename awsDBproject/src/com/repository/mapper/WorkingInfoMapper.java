@@ -13,4 +13,5 @@ public interface WorkingInfoMapper {
 	ArrayList<WorkingInfo> selectWorkingInfoAndLogInfoById(int _id);
 	int selectWorkTimeForToday(@Param("usr_id") int userId, @Param("working_dt") String workingDate);
 	WorkingInfo selectWorkInfoByWorkId(int workId);
+	int deleteWorkInfoByWorkId(int workId);
 }

@@ -57,4 +57,10 @@
 		SET login_id=#{login_id}, password=#{password}, name=#{member_name}
 		WHERE id=#{_id}
 	</update>
+	
+	<delete id="deleteMemberById" parameterType="int">
+		DELETE 
+		FROM MNG_USR_TB
+		WHERE id = #{id}
+	</delete>
 </mapper>

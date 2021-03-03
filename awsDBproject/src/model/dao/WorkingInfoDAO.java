@@ -122,4 +122,22 @@ public class WorkingInfoDAO {
 			sqlSession.close();	
 		} return info;
 	}
+	
+	public int deleteWorkInfoByWorkId(int workId) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		int result = 0;
+		try {
+			result = sqlSession.getMapper(WorkingInfoMapper.class).deleteWorkInfoByWorkId(workId);
+			if(result > 0) {
+				sqlSession.commit();
+			}
+		}catch(Exception e) {
+			System.out.print(e.getMessage());
+		}finally {
+			sqlSession.close();
+		}
+		
+		return result;
+	}
 }

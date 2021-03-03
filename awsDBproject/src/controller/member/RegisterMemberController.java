@@ -21,8 +21,8 @@ public class RegisterMemberController implements Controller {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-//		String path = "/home/ubuntu/log";
-		String path = "C:\\project\\awsworkspace\\userImage";
+		String path = "/home/ubuntu/log";
+//		String path = "C:\\project\\awsworkspace\\userImage";
 		System.out.println(path);
 		int maxFileSize = 1024 * 1024 * 2;
 		

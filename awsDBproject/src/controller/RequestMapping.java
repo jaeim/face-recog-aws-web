@@ -26,6 +26,8 @@ public class RequestMapping {
     	mappings.put("/user/updateForm", new UpdateMemberController());
     	mappings.put("/user/update", new UpdateMemberController());
     	mappings.put("/user/logout", new LogoutController());
+    	mappings.put("/user/delete", new DeleteMemberController());
+
     	
     	// 세팅정보
     	mappings.put("/setting/client", new SettingController());
@@ -41,10 +43,12 @@ public class RequestMapping {
     	mappings.put("/working/logInfo", new ShowLogInfoController());
     	mappings.put("/working/workingInfo", new ShowWorkingInfoController());
     	mappings.put("/working/captureImage", new ShowCaptureImageController());
+    	mappings.put("/working/deleteInfo", new DeleteWorkingInfoController());
     	
 //    	근무정보 보여주기 (실제 UI 적용 부분)
     	mappings.put("/work/captureImage", new CaptureImageController());
     	mappings.put("/work/detailLog", new DetailLogController());
+    	
     }
 
     public Controller findController(String uri) {

@@ -52,8 +52,8 @@ public class UpdateMemberController implements Controller {
 	    
 //		사진이 첨부되었을 때
 		if(result == null) {	
-//			String path = "/home/ubuntu/log";
-			String path = "C:\\project\\awsworkspace\\userImage";
+			String path = "/home/ubuntu/log";
+//			String path = "C:\\project\\awsworkspace\\userImage";
 			System.out.println(path);
 			int maxFileSize = 1024 * 1024 * 2;
 			
