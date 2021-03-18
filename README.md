@@ -28,4 +28,5 @@
 ## 4. 사용 기술
 -----
 
-![2021-03-15 13;57;26](https://user-images.githubusercontent.com/68433884/111107734-c0bcf980-859a-11eb-82e6-92e5a9aea448.PNG)
+![제목 없음](https://user-images.githubusercontent.com/61769743/111647228-a78ba580-8845-11eb-9764-b1d587199108.png)
+
