@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>홈 화면</title>
-<script src="scripts/jquery-1.12.4.min.js"></script>
-
+<script src="${pageContext.request.contextPath}/AdminLTE/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript">
  window.history.forward();
  function noBack(){window.history.forward();}
