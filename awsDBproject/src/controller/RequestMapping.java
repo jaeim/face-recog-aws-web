@@ -14,7 +14,7 @@ public class RequestMapping {
     private Map<String, Controller> mappings = new HashMap<String, Controller>();
 
     public void initMapping() {
-    	mappings.put("/", new ForwardController("index.jsp"));
+    	mappings.put("/", new SiteLoginController());
     	// 사용자 
     	mappings.put("/user/test", new ForwardController("/user/test.jsp"));
     	mappings.put("/user/view", new ViewMemberController());
@@ -39,10 +39,10 @@ public class RequestMapping {
     	mappings.put("/sending/info", new GetClientInfoController());
     	
 //    	근무정보 보여주기 (테스트 버전)
-    	mappings.put("/working/member", new ShowMemberController());
-    	mappings.put("/working/logInfo", new ShowLogInfoController());
-    	mappings.put("/working/workingInfo", new ShowWorkingInfoController());
-    	mappings.put("/working/captureImage", new ShowCaptureImageController());
+//    	mappings.put("/working/member", new ShowMemberController());
+//    	mappings.put("/working/logInfo", new ShowLogInfoController());
+//    	mappings.put("/working/workingInfo", new ShowWorkingInfoController());
+//    	mappings.put("/working/captureImage", new ShowCaptureImageController());
     	mappings.put("/working/deleteInfo", new DeleteWorkingInfoController());
     	
 //    	근무정보 보여주기 (실제 UI 적용 부분)

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>홈 화면</title>
-<script src="scripts/jquery-1.12.4.min.js"></script>
+<!-- <script src="scripts/jquery-1.12.4.min.js"></script>   -->
 
 <script type="text/javascript">
  window.history.forward();
@@ -202,7 +202,6 @@
 
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-md navbar-light bg-light">
-			<a class="navbar-brand" href="#">Navbar</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarNav" aria-controls="navbarNav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -214,7 +213,6 @@
 							화면 <span class="sr-only">(current)</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link" href="<c:url value='/user/updateForm' />">내 정보</a></li>
-					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
 					</li>
 				</ul>
 			</div>

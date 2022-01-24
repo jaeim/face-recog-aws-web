@@ -6,6 +6,9 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import constants.Constants;
+
 import com.oreilly.servlet.MultipartRequest;
 import controller.Controller;
 import model.ImageInfo;
@@ -23,8 +26,7 @@ public class GetCaptureImageController implements Controller {
 
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd_HH-mm-SS");
 		System.out.println(format.format(now));
-//		String path = "/home/ubuntu/log";
-		String path="C:\\Users\\yoo77\\Image\\capture";
+		String path=Constants.PATH;
 		int maxFileSize = 1024 * 1024 * 15;
 		MultipartRequest mRequest = new MultipartRequest(request, path, maxFileSize, "utf-8", new DefaultFileRenamePolicy());
 		String imageName = mRequest.getFile("image").getName();

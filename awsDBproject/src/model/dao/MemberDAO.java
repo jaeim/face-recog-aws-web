@@ -33,7 +33,8 @@ public class MemberDAO {
 			inputStream = Resources.getResourceAsStream(resource);
 		} catch (Exception e) {
 			throw new IllegalArgumentException(e);
-		} sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+		}
+		sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 	}
 	
 	public static MemberDAO getInstance() {

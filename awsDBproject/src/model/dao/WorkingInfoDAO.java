@@ -99,7 +99,8 @@ public class WorkingInfoDAO {
 	public int selectWorkTimeForToday(int userId, String workingDate) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
-		int workTime = 0;
+//		int workTime = 0;
+		Integer workTime = null;
 		try {
 			workTime = sqlSession.getMapper(WorkingInfoMapper.class).selectWorkTimeForToday(userId, workingDate);
 		}catch(Exception e) {
@@ -107,7 +108,9 @@ public class WorkingInfoDAO {
 		}finally {
 			sqlSession.close();
 		}
-		
+		if(workTime == null) {
+			workTime = 0;
+		}
 		return workTime;
 	}
 	
